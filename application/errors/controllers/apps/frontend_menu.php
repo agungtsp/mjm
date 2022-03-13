@@ -4,7 +4,7 @@ class Frontend_menu extends CI_Controller{
 	
 	function __construct(){
 		parent::__construct();
-		$this->load->model('frontendMenuModel');
+		$this->load->model('frontendmenumodel');
 		$this->load->model('languagemodel');
 	}
 
@@ -16,8 +16,8 @@ class Frontend_menu extends CI_Controller{
 
 	public function add($id=''){
 		if($id){
-			$datas 	= $this->frontendMenuModel->selectData($id);
-			// $datas 	= $this->frontendMenuModel->findById($id);
+			$datas 	= $this->frontendmenumodel->selectData($id);
+			// $datas 	= $this->frontendmenumodel->findById($id);
 			
 			if(!$datas){
 				die('404');
@@ -80,7 +80,7 @@ class Frontend_menu extends CI_Controller{
 
 	public function view($id=''){
 		if($id){
-			$datas 	= $this->frontendMenuModel->selectData($id);
+			$datas 	= $this->frontendmenumodel->selectData($id);
 
 			if(!$datas){
 				die('404');
@@ -103,7 +103,7 @@ class Frontend_menu extends CI_Controller{
 	}
 
 	function records(){
-		$data = $this->frontendMenuModel->records();
+		$data = $this->frontendmenumodel->records();
 		foreach ($data['data'] as $key => $value){
 			// $data['data'][$key]['name'] = quote_form($value['name']);
 			$data['data'][$key]['publish_date'] = iso_date($value['publish_date']);
@@ -151,7 +151,7 @@ class Frontend_menu extends CI_Controller{
 				 	$id_status 		= $post['id_status_publish'][$key];
 				}
 				else{
-					$parent = $this->frontendMenuModel->fetchRow(array('id_parent_lang'=>$post['id_parent'][0],'id_language'=>$post['id_lang'][$key]));
+					$parent = $this->frontendmenumodel->fetchRow(array('id_parent_lang'=>$post['id_parent'][0],'id_language'=>$post['id_lang'][$key]));
 					$idParent = $parent ? $parent['id'] : -1 ; //-1 = kalo abis nambah bahasa. pasti ga punya parent
 					$id_parent = !$id_parent ? 0 : $idParent; 
 
@@ -179,12 +179,12 @@ class Frontend_menu extends CI_Controller{
 				 	auth_update();
 					$ret['message'] = 'Update Success';
 					$act			= "Update Frontend menu";
-					$iddata 		= $this->frontendMenuModel->update($data_save, $idedit);
+					$iddata 		= $this->frontendmenumodel->update($data_save, $idedit);
 				}else{
 					auth_insert();
 					$ret['message'] = 'Insert Success';
 					$act			= "Insert Frontend menu";
-					$iddata 		= $this->frontendMenuModel->insert($data_save);
+					$iddata 		= $this->frontendmenumodel->insert($data_save);
 				}
 
 				if($key==0){
@@ -204,8 +204,8 @@ class Frontend_menu extends CI_Controller{
 	function del(){
 		auth_delete();
 		$id = $this->input->post('iddel');
-		$this->frontendMenuModel->delete($id);
-		$this->frontendMenuModel->delete2($id);
+		$this->frontendmenumodel->delete($id);
+		$this->frontendmenumodel->delete2($id);
 		detail_log();
 		insert_log("Delete Frontend menu");
 	}

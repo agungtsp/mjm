@@ -1,5 +1,5 @@
 <?php
-class frontendmenumodel extends  CI_Model{
+class Frontendmenumodel extends  CI_Model{
 	var $table = 'frontend_menu';
 	var $tableAs = 'frontend_menu a';
     function __construct(){

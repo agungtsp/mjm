@@ -145,9 +145,9 @@ function render($view,$data='',$layout="", $ret=false){
 	$data['header_menu']        = header_menu();
 	$data['footer_menu']        = footer_menu();
 	$data['banner_bottom']      = banner_bottom();
-	$data['logo'][]             = get_logo();
-	$data['logo_footer'][]      = get_logo();
-	$data['footer_data'][]      = get_footer_data();
+	// $data['logo'][]             = get_logo();
+	// $data['logo_footer'][]      = get_logo();
+	// $data['footer_data'][]      = get_footer_data();
 	$data['top_menu']           = top_menu();
 	$data['language']           = LANGUAGE;
 	$data['top_menu_mobile']    = top_menu_mobile();
