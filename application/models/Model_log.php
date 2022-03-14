@@ -10,7 +10,7 @@ class Model_log extends CI_Model{
 		    $data	= $this->db->query($sql)->row()->ttl;
 	}
 	else{
-            $sql="SELECT a.id ,b.userid,b.username,b.id_auth_user,a.log_date,a.activity,ip
+            $sql="SELECT a.id ,b.userid,b.full_name,b.id_auth_user,a.log_date,a.activity,ip
 						  FROM access_log a left join auth_user b on a.id_auth_user=b.id_auth_user 
 						  where 1=1  $where order by $sidx $sord   LIMIT $mulai, $end ";
             $dt	= $this->db->query($sql)->result_array();
@@ -19,7 +19,7 @@ class Model_log extends CI_Model{
                 $data[$n]['id']			= $dtx['id'];
                 $data[$n]['view']		= "<span onclick='detail($dtx[id])'>".view_grid($dtx['id']).'</span>';
                 $data[$n]['userid'] 	= $dtx['userid'];
-                $data[$n]['username']	= $dtx['username'];
+                $data[$n]['username']	= $dtx['full_name'];
                 $data[$n]['log_date'] 	= iso_date_time($dtx['log_date'],'/');
                 $data[$n]['activity'] 	= word_limiter(strip_tags($dtx['activity']),15);
                 $data[$n]['ip'] 			= $dtx['ip'];

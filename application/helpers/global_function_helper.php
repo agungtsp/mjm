@@ -129,14 +129,9 @@ function render($view,$data='',$layout="", $ret=false){
 	$data['ASSETS_VERSIONING'] = ASSETS_VERSIONING;
 
 	$user_sess_data             = $CI->session->userdata('MEM_SESS');
+	$data['hide_login_member'] = ($user_sess_data) ? "d-none" : "";
 	if(!$data['page_name']){
 		$data['page_name'] = generate_title();
-	}
-	if($user_sess_data){
-		if($user_sess_data['remember_me']=1){
-			$CI->load->model('loginmodel');
-			$CI->loginmodel->remember_me_login();
-		}
 	}
 
 	if(!$data['head_title']){
