@@ -13,3 +13,6 @@ label.parsley-errors-list>span {
 .owl-item .item a{
   text-decoration: none;
 }
+.list-top{
+  height: 145px;
+}

@@ -31,6 +31,7 @@ class Articles extends CI_Controller
             $data['list_articles'][$key]['img'] = getImgLink($value['img'], 'large');
             $data['list_articles'][$key]['created_at'] = iso_date_custom_format($value['create_date'], 'M d Y');
         }   
+        $data['list_top_articles'] = $this->top_articles($id_lang);
         render("articles", $data);
     }
 
@@ -56,8 +57,23 @@ class Articles extends CI_Controller
         );
 
         $data["active_articles"] = "active";
-
+        $data['list_top_articles'] = $this->top_articles($id_lang);
         render("articles_detail", $data);
+    }
+
+    private function top_articles($id_lang, $id=''){
+        $filter_recomendation['id_lang'] = $id_lang;
+        if($id){
+            $filter_recomendation['id !='] = $id;
+        } 
+        $this->db->order_by('create_date', 'asc');
+        $data = $this->articlemodel->findBy($filter_recomendation);	
+        foreach ($data as $key => $value) {
+            $data[$key]['img_top_article'] = getImgLink($value['img'], 'large');
+            $data[$key]['uri_path_top_article'] = $value['uri_path'];
+            $data[$key]['title_top_article'] = $value['title'];
+        }
+        return $data;
     }
 
 }

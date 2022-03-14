@@ -17,20 +17,14 @@
             {/list_articles}
           </div>
           <div class="top-article">
-            <h5 class="mb-4">TOP ARTICLES</h5>
-            <a href="article-detail.html" class="list-top">
-              <img src="images/toparticle.jpg" alt="">
-              <span>Dolor sit amet, consectetur adipiscing elit, sed do</span>
+            <h5 class="mb-4 text-uppercase">{lang_top_article}</h5>
+            {list_top_articles}
+            <a href="{base_url_lang}articles/detail/{uri_path_top_article}" class="list-top">
+              <img src="{img_top_article}" alt="">
+              <span>{title_top_article}</span>
             </a>
-            <a href="article-detail.html" class="list-top">
-              <img src="images/toparticle.jpg" alt="">
-              <span>Dolor sit amet, consectetur adipiscing elit, sed do</span>
-            </a>
-            <a href="article-detail.html" class="list-top">
-              <img src="images/toparticle.jpg" alt="">
-              <span>Dolor sit amet, consectetur adipiscing elit, sed do</span>
-            </a>
-            <div class="tags">
+            {/list_top_articles}
+            <!-- <div class="tags">
               <h5 class="mb-4 mt-5">TAGS</h5>
               <a href="#">Promo</a>
               <a href="#">Dolidays</a>
@@ -39,7 +33,7 @@
               <a href="#">Giveaway</a>
               <a href="#">Tips</a>
               <a href="#">New Year</a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
