@@ -56,15 +56,15 @@ class Search extends CI_Controller {
         $data['list_news']      = $news;
 
         if($data['seo_title'] == ''){
-            $data['seo_title'] = "MJM";
+            $data['seo_title'] = "MJM | Partner for Quality";
         }
 
         if($data['meta_description'] == ''){
-            $data['meta_description'] = "MJM";
+            $data['meta_description'] = "MJM | Partner for Quality";
         }
 
         if($data['meta_keywords'] == ''){
-            $data['meta_keywords'] = "MJM";
+            $data['meta_keywords'] = "MJM | Partner for Quality";
         }
 
         $data['page_heading']   = 'Search';

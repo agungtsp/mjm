@@ -35,6 +35,10 @@
 										<div class="col-md-9"><input type="text" value="{slideshow_title}" id="slideshow_title{nomor}" data-parsley-required="{validation}" class='form-control' name="slideshow_title[]"></div>
 									</div>
 									<div class="form-group  no-margin">
+										<label class="col-md-2 control-label">Sub Title</label>
+										<div class="col-md-9"><input type="text" value="{slideshow_sub_title}" id="slideshow_sub_title{nomor}" data-parsley-required="{validation}" class='form-control' name="slideshow_sub_title[]"></div>
+									</div>
+									<div class="form-group  no-margin">
 										<label class="col-md-2 control-label">Redirect URL</label>
 										<div class="col-md-9"><input type="text" value="{url}" id="url{nomor}" class='form-control' name="url[]"></div>
 									</div>
@@ -46,13 +50,13 @@
 										<label class="col-md-2 control-label">Image <i class='req'>*</i></label>
 										<div class="col-md-9">
 											{img}
-											<div style="color: green">size : 1350  x 520px</div><br/>
+											<div style="color: green">Size : 220px  x 240px</div><br/>
 											<a style="cursor: pointer;" onclick="delImage('{nomor}', '{base_url}')">Delete Image</a>
 											<input type="hidden" name="imgDelete[]" id="imgDelete{nomor}" value="0">
 										</div>
 
 									</div>
-									<div class="form-group  no-margin {invis}">
+									<!-- <div class="form-group  no-margin {invis}">
 										<label class="col-md-2 control-label">Publish Date </label>
 										<div class="col-md-9">
 											<div class="input-group date datepicker" data-date-format="dd-mm-yyyy">
@@ -60,7 +64,7 @@
 												<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 											</div>
 									    </div>
-									</div>
+									</div> -->
 									<div class="form-group  no-margin">
 										<label class="col-md-2 control-label">Description  </label>
 										<div class="col-md-9"><textarea  rows="4" id="description{nomor}" class="form-control" name="description[]">{description}</textarea></div>
@@ -87,6 +91,6 @@
 	</div>
 </div>
 <style type="text/css">
-	.browse-image{width: 100% !important;height: 125px !important;}
+	.browse-image{width: 100% !important;height: 240px !important;}
 	.browse-image img{width: initial !important; margin-top: -12px !important;}
 </style>

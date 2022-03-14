@@ -6,162 +6,155 @@
 		<meta name="author" content="" />
 		<link rel="icon" href="{base_url}asset/images/favicon.png">
     	<title>{seo_title}</title>
+
+		<meta name="description" content="{meta_description}">
+		<meta name="keywords" content="{meta_keywords}">
+
 		<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="{base_url}asset/fonts/inter.css">
 		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/animate.css">
 		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/swiper-bundle.min.css">
 		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/style.css">
 		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/responsive.css">
+		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/custom.css">
 
   		<script src="https://unpkg.com/feather-icons"></script>
 
-      <meta name="description" content="{meta_description}">
-    <meta name="keywords" content="{meta_keywords}">
-
-    {meta_og}
-
-    <script type="text/javascript">
-      var news_title      = "{news_title}";
-      var full_url        = window.location.href;
-      var base_url        = '{base_url}';
-      var this_controller = '{this_controller}';
-      var base_url_lang   = '{base_url_lang}';
-    </script>
+		<script type="text/javascript">
+		var news_title      = "{news_title}";
+		var full_url        = window.location.href;
+		var base_url        = '{base_url}';
+		var this_controller = '{this_controller}';
+		var base_url_lang   = '{base_url_lang}';
+		</script>
 	</head>
   <body>
-    <header>
-			<div class="top-header wow fadeInDown" data-wow-duration="1s">
-				<div class="container">
-					<div class="d-flex">
-						<div class="d-flex w-100">
-							<span><i data-feather="map-pin"></i> Jl. Industri Selatan 5, Blok FF1/J, Jababeka</span>
-							<span><a href="mailto:info@mursmedic.com"><i data-feather="mail"></i> info@mursmedic.com</a></span>
-						</div>
-						<div class="lang">
-							<a href="{base_url}id" class="{active_id}"><span><img src="{base_url}asset/images/in.jpg" alt=""></span>Indonesia</a>
-							<a href="{base_url}en" class="{active_en}"><span><img src="{base_url}asset/images/en.jpg" alt=""></span>English</a>
-						</div>
+	<header>
+		<div class="top-header wow fadeInDown" data-wow-duration="1s">
+			<div class="container">
+				<div class="d-flex">
+					<div class="d-flex w-100">
+						<span><i data-feather="map-pin"></i> {short_address}</span>
+						<span><a href="mailto:{email_address}"><i data-feather="mail"></i> {email_address}</a></span>
+					</div>
+					<div class="lang">
+						<a href="{base_url}id" class="{active_id}"><span><img src="{base_url}asset/images/in.jpg" alt=""></span>Indonesia</a>
+						<a href="{base_url}en" class="{active_en}"><span><img src="{base_url}asset/images/en.jpg" alt=""></span>English</a>
 					</div>
 				</div>
 			</div>
-			<nav class="navbar navbar-expand-lg navbar-mjm wow fadeInDown" data-wow-duration="1.5s">
-			  <div class="container c-navbar">
-			    <a class="navbar-brand logo" href="{base_url}"><img src="{base_url}asset/images/logo.png" alt=""></a>
-			    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			      <span class="navbar-toggler-icon"></span>
-			    </button>
-			    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-			    	<a class="logo-mobile" href="{base_url}"><img src="{base_url}asset/images/logo.png" alt=""></a>
-			      <ul class="navbar-nav">
-			        <li class="nav-item">
-			          <a class="nav-link {active_home}" href="{base_url}">Home</a>
-			        </li>
-			        <li class="nav-item dropdown">
-			          <a class="nav-link dropdown-toggle" href="#" id="navAbout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-			            About
-			          </a>
-			          <ul class="dropdown-menu" aria-labelledby="navAbout">
-			            <li><a class="dropdown-item" href="#">About Us</a></li>
-			            <li><a class="dropdown-item" href="#">About Us 1</a></li>
-			          </ul>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="services.html">Services</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="product.html">Product</a>
-			        </li>
-			        <li class="nav-item dropdown">
-			          <a class="nav-link dropdown-toggle" href="#" id="navArticles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-			            Articles
-			          </a>
-			          <ul class="dropdown-menu" aria-labelledby="navArticles">
-			            <li><a class="dropdown-item" href="#">Articles</a></li>
-			            <li><a class="dropdown-item" href="#">Articles 1</a></li>
-			          </ul>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link {active_contactus}" href="{base_url}contactus">Contact</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link btn btn-yellow ms-4" href="{base_url}member/register">Client Area</a>
-			        </li>
-			      </ul>
-			    </div>
-			  </div>
-			</nav>
-		</header>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-mjm wow fadeInDown" data-wow-duration="1.5s">
+		  <div class="container c-navbar">
+			<a class="navbar-brand logo" href="{base_url_lang}"><img src="{base_url}asset/images/logo.png" alt=""></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+				<a class="logo-mobile" href="{base_url_lang}"><img src="{base_url}asset/images/logo.png" alt=""></a>
+			  <ul class="navbar-nav">
+				<li class="nav-item">
+				  <a class="nav-link {active_home}" href="{base_url_lang}">{lang_menu_home}</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link {active_aboutus}" href="{base_url_lang}aboutus">{lang_menu_about_us}</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link {active_services}" href="{base_url_lang}services">{lang_menu_services}</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link {active_product}" href="{base_url_lang}product">{lang_menu_product}</a>
+				</li>
+				<li class="nav-item dropdown">
+				  <a class="nav-link dropdown-toggle {active_articles}" href="#" id="navAbout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					{lang_menu_articles}
+				  </a>
+				  <ul class="dropdown-menu" aria-labelledby="navAbout">
+					<li><a class="dropdown-item" href="{base_url_lang}articles">{lang_menu_articles}</a></li>
+					<li><a class="dropdown-item" href="{base_url_lang}careers">{lang_menu_careers}</a></li>
+				  </ul>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link {active_contactus}" href="{base_url_lang}contactus">{lang_menu_contact_us}</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link btn btn-yellow ms-4" href="{base_url_lang}clientarea">{lang_menu_client_area}</a>
+				</li>
+			  </ul>
+			</div>
+		  </div>
+		</nav>
+	</header>
 
     {content}
     
-    <footer>
-			<div class="container f-top wow fadeInUp">
-				<div class="row">
-					<div class="col-md-6">
-						<img src="{base_url}asset/images/logo.png" alt="" height="50">
-						<h2>PT Mursmedic Jaya Mandiri (MJM)</h2>
-						<p>Head Office & Plant<br> Jl. Industri Selatan 5, Blok FF1/J, Jababeka<br> Phase 2, Pasir Sari, Cikarang Selatan,<br> Bekasi, Jawa Barat 17750 – INDONESIA</p>
-						<p>Phone: +6221 29078970 / +6221 29078971<br> Email: info@mursmedic.com</p>
-					</div>
-					<div class="col-md-3">
-						<h4>All Useful Links</h4>
-						<ul>
-							<li><a href="{base_url}">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="careers.html">Careers</a></li>
-							<li><a href="services.html">Services</a></li>
-							<li><a href="product.html">Product</a></li>
-						</ul>
-					</div>
-					<div class="col-md-3">
-						<h4>Others</h4>
-						<ul>
-							<li><a href="articles.html">Article</a></li>
-							<li><a href="events.html">Event</a></li>
-							<li><a href="{base_url}contactus">Contact us</a></li>
-							<li><a href="{base_url}member/register">Client Area</a></li>
-						</ul>
-					</div>
+	<footer>
+		<div class="container f-top wow fadeInUp">
+			<div class="row">
+				<div class="col-md-6">
+					<img src="{base_url}asset/images/logo.png" alt="" height="50">
+					<h2>{footer_teaser}</h2>
+					{address}
+					<p>Phone: {number_phone}<br> Email: {email_address}</p>
+				</div>
+				<div class="col-md-3">
+					<h4>{lang_useful_links}</h4>
+					<ul>
+						<li><a href="{base_url_lang}">{lang_menu_home}</a></li>
+						<li><a href="{base_url_lang}aboutus">{lang_menu_about_us}</a></li>
+						<li><a href="{base_url_lang}careers">{lang_menu_careers}</a></li>
+						<li><a href="{base_url_lang}services">{lang_menu_services}</a></li>
+						<li><a href="{base_url_lang}product">{lang_menu_product}</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<h4>{lang_others}</h4>
+					<ul>
+						<li><a href="{base_url_lang}articles">{lang_menu_articles}</a></li>
+						<li><a href="{base_url_lang}event">{lang_menu_event}</a></li>
+						<li><a href="{base_url_lang}contactus">{lang_menu_contact_us}</a></li>
+						<li><a href="{base_url_lang}clientarea">{lang_menu_client_area}</a></li>
+					</ul>
 				</div>
 			</div>
-			<div class="container-fluid f-bottom wow fadeInUp">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6">
-							© Copyright <b>PT Mursmedic Jaya Mandiri</b> All Rights Reserved
+		</div>
+		<div class="container-fluid f-bottom wow fadeInUp">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						© Copyright <b>PT Mursmedic Jaya Mandiri</b> All Rights Reserved
+					</div>
+					<div class="col-md-6 text-end">
+						<div class="medsoc">
+							<a href="{link_instagram}" target="_BLANK" class="{show_link_instagram}"><i data-feather="instagram"></i> </a>
+							<a href="{link_facebook}" target="_BLANK" class="{show_link_facebook}"><i data-feather="facebook"></i> </a>
+							<a href="{link_twitter}" target="_BLANK" class="{show_link_twitter}"><i data-feather="twitter"></i> </a>
+							<a href="{link_youtube}" target="_BLANK" class="{show_link_youtube}"><i data-feather="youtube"></i> </a>
 						</div>
-						<div class="col-md-6 text-end">
-							<div class="medsoc">
-								<a href="http://facebook.com"><i data-feather="facebook"></i></a>
-								<a href="http://youtube.com"><i data-feather="youtube"></i></a>
-								<a href="http://twitter.com"><i data-feather="twitter"></i></a>
-								<a href="http://instagram.com"><i data-feather="instagram"></i></a>
-							</div>
-						</div>
-					</div>				
-				</div>	
-			</div>
-		</footer>
+					</div>
+				</div>				
+			</div>	
+		</div>
+	</footer>
 
-		<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-		<script type="text/javascript" src="{base_url}asset/js/bootstrap.bundle.min.js"></script>
-		<script type="text/javascript" src="{base_url}asset/js/swiper-bundle.min.js"></script>
-	    <script src="{base_url}asset/js/wow.js"></script>
-	    <script src="{base_url}asset/js/js.js"></script>
-	    <script>
-		    
-	    </script>
-	    <script>
-    		new WOW().init();
+	<a href="https://api.whatsapp.com/send?phone=6281286980698&text=Hallo" class="float-wa" target="_blank">
+		<i class="fa fa-whatsapp my-float"></i>
+	</a>
 
-	      	feather.replace()
-		</script>
+	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="{base_url}asset/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="{base_url}asset/js/swiper-bundle.min.js"></script>
+	<script src="{base_url}asset/js/wow.js"></script>
+	<script src="{base_url}asset/js/js.js"></script>
+	<script src="{base_url}asset/js/parsley.js"></script>
+	<script src="{base_url}asset/js/custom.js"></script>
+	<script>
+		new WOW().init();
 
-	    <!-- Option 2: Separate Popper and Bootstrap JS -->
-	    <!--
-	    <script src="js/popper.min.js"></script>
-	    <script src="js/bootstrap.min.js"></script>
-	    -->
+		  feather.replace()
+	</script>
+
 	</body>
 </html>

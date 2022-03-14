@@ -67,7 +67,7 @@ function sent_mail($conf){
 		  
 		  if(!$mail->Send()) {
 				//echo "Error|" . $mail->ErrorInfo;
-				exit;
+				// exit;
 		  }
 	 //}
 	 //else {

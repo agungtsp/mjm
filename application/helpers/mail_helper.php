@@ -29,17 +29,17 @@ function sent_mail($email,$config){
    //Load CodeIgniter Email library
    $CI->load->library('email');
    $CI->email->initialize(array(
-                      'protocol' => 'smtp',
-                      'smtp_host' => $config['smtp_host'],
-                      'smtp_user' => $config['smtp_user'],
-                      'smtp_pass' => $config['smtp_pass'],
-                      'smtp_port' => $config['port'],
-                      'smtp_crypto' =>  'ssl',
-                      'crlf' => "\r\n",
-                      'newline' => "\r\n",
-                      'mailtype' => 'html', 
-                      'charset' => 'UTF-8'
-                    ));
+         'protocol' => 'smtp',
+         'smtp_host' => $config['smtp_host'],
+         'smtp_user' => $config['smtp_user'],
+         'smtp_pass' => $config['smtp_pass'],
+         'smtp_port' => $config['port'],
+         'smtp_crypto' =>  'ssl',
+         'crlf' => "\r\n",
+         'newline' => "\r\n",
+         'mailtype' => 'html', 
+         'charset' => 'UTF-8'
+   ));
    
    // Sometimes you have to set the new line character for better result
    // $CI->email->set_newline("\r\n");
@@ -80,10 +80,10 @@ function sent_mail($email,$config){
    if (!$check_status_email_sent) {
        // Raise error message         
       $ret['error'] = 1;
-      $ret['message'] = show_error($CI->email->print_debugger());;
-      print_r(
-        show_error($CI->email->print_debugger())
-      );exit;
+      // $ret['message'] = show_error($CI->email->print_debugger());;
+      // print_r(
+      //   show_error($CI->email->print_debugger())
+      // );exit;
    } else {
       // Show success notification or other things here
       $ret['error']   = 0;

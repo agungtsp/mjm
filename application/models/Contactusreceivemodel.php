@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Contactusreceivemodel extends CI_Model{
+class contactusreceivemodel extends CI_Model{
 
 	var $table 		= 'contact_us_receive';
 	var $tableAs 	= 'contact_us_receive a';

@@ -1,5 +1,5 @@
 <?php
-class ContactUsModel extends  CI_Model{
+class contactusmodel extends  CI_Model{
 	var $table = 'contact_us';
 	var $tableAs = 'contact_us a';
     function __construct(){

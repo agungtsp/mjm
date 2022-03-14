@@ -4,36 +4,27 @@ $(document).ready(function(){
 	});
 
 	$('#save,#save_approve').click(function(){
-		var send_approval = $(this).attr('id');
+		var send_approval = $(this).attr('id') == 'save' ? '' : '&send_approval=1';
 		var back_url = $(this).attr('data-back') || '';
 		loading();
 		var ckData = '';
 		var ckId = '';
 		var ckVal = '';
-		
-		var formData = new FormData($('#form1')[0]);
-		if (send_approval != 'save') {
-			formData.append('send_approval',1);
-		}
-		
-		$('.ckeditor').each(function(){
+		$('#form1 .ckeditor').each(function(){
 			ckId = $(this).attr('id');
-			val = CKEDITOR.instances[ckId].getData();
-			CKEDITOR.instances[ckId].updateElement();
-			ckData += '&'+ckId+'='+escape(val);
-			formData.append(ckId,escape(val));
+			if(CKEDITOR.instances[ckId]){
+				val = CKEDITOR.instances[ckId].getData();
+				CKEDITOR.instances[ckId].updateElement();
+				ckData += '&'+ckId+'='+escape(val);
+			}
 		})
-
-		// if (1 == 1 ) {
 		if ($('#form1').parsley().validate()) {
+			var disabled = $('#form1').find('input:disabled, select:disabled').removeAttr('disabled');
 			$.ajax({
 				url         : $('#form1').attr('action'),
 				type        : "POST",
 				dataType	: 'json',
-				/*data        : $('#form1').serialize()+ckData+send_approval,*/
-				data        : formData,
-				processData: false,
-    			contentType: false,
+				data        : $('#form1').serialize()+ckData+send_approval,
 				error		: function () {
 								//notify('error!');
 								// clear_form_elements('#form1');
@@ -45,10 +36,13 @@ $(document).ready(function(){
 									$.gritter.add({title:page_name,text:ret.message});
 									$('#save-schedule').modal('hide')
 									loadingcomplete();
-								}else{
+								}
+								else{
 									window.location.href=this_controller + back_url;
 									clear_form_elements('#form1');
-								}		
+								}
+								disabled.attr('disabled','disabled');
+								
 				}
 			})
 		} else {
@@ -98,6 +92,12 @@ $(document).ready(function(){
 	//pages, news
 	$('#title,#uri_path').keyup(function(){
 		$('#uri_path').val( convert_to_uri( $(this).val() ) );
+	})
+	$('#title0,#uri_path0').keyup(function(){
+		$('#uri_path0').val( convert_to_uri( $(this).val() ) );
+	})
+	$('#title1,#uri_path1').keyup(function(){
+		$('#uri_path1').val( convert_to_uri( $(this).val() ) );
 	})
 	//news
 	$('#approve,#revise').click(function(){

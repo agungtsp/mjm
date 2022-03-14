@@ -5,12 +5,12 @@
  */
 function slider_widget(){
     $CI=& get_instance();
-	$CI->load->model('slideshowModel');
+	$CI->load->model('slideshowmodel');
 	$lang_id = get_language_id();
 
 	$CI->db->where('a.id_status_publish', '2');
 	$CI->db->order_by('a.publish_date', 'dsc')->limit(5);
-	$data = $CI->slideshowModel->findBy(array('id_lang' => $lang_id));
+	$data = $CI->slideshowmodel->findBy(array('id_lang' => $lang_id));
 	$i = 0;
     if ($data) {
 		foreach ($data as $key => $value) {
@@ -1026,23 +1026,11 @@ function getParentMenu($parent=''){
 	$CI 		= & get_instance();
 	$id_lang 	= id_lang();
 	$CI->load->model('frontendmenumodel');
-	$CI->load->model('newscategorymodel');
 	$uri4		= $CI->uri->segment(4);
 	$uri3		= $CI->uri->segment(3);
 	$uri2		= $CI->uri->segment(2);
 	$uri1		= $CI->uri->segment(1);
 	$where = array();
-	if($uri2 == 'news'){
-		$CI->load->model('newsmodel');
-		$where2['a.uri_path'] 	= $uri4;
-		$where2['a.id_lang'] 	= $id_lang;
-		$data		 			= $CI->newsmodel->fetchRow($where2);
-		// print_r($data);
-		// echo $CI->db->last_query();exit;
-		$newsCat	 			= $CI->newscategorymodel->findById($data['id_news_category']);
-		// print_r($newsCat);exit;
-		$uri3		 			= $newsCat['uri_path'];
-	}
 
 	$CI->db->order_by('id_parent','desc');
 	$where['id_language'] = $id_lang;
@@ -1291,19 +1279,19 @@ function meta_keywords($meta=''){
 function sent_email_by_category($id_ref_email_category,$data,$to){
     $CI=& get_instance();
     $CI->load->helper('mail');
-    $CI->load->model('EmailDefaultModel');
-    $CI->load->model('EmailTmpModel');
-    $CI->load->model('contactusreceiveModel');
-	$data_email_category = $CI->EmailDefaultModel->findById($id_ref_email_category);
+    $CI->load->model('emaildefaultmodel');
+    $CI->load->model('emailtmpmodel');
+    $CI->load->model('contactusreceivemodel');
+	$data_email_category = $CI->emaildefaultmodel->findById($id_ref_email_category);
 
     if($data_email_category['id_email_tmp']){
 
 
 	    $CI->db->select('group_concat(email) as email_group');
-		$add_email_to        = $CI->contactusreceiveModel->findBy(array('id_email_category' => $data_email_category['id'],'id_status_publish'=>2),1)['email_group'];
+		$add_email_to        = $CI->contactusreceivemodel->findBy(array('id_email_category' => $data_email_category['id'],'id_status_publish'=>2),1)['email_group'];
 		$add_email_to        = !empty($add_email_to) ? "," . $add_email_to : $add_email_to;
 		
-		$data_email_template = $CI->EmailTmpModel->findById($data_email_category['id_email_tmp']);
+		$data_email_template = $CI->emailtmpmodel->findById($data_email_category['id_email_tmp']);
 		
         if($data_email_template){
             $email['to'] = $to.$add_email_to;
@@ -1331,7 +1319,7 @@ function sent_email_by_category($id_ref_email_category,$data,$to){
 			$data_email['category']     = $data_email_category['name'];
 			$data_email['process_date'] = date('Y-m-d H:i:s');
 			$data_email['from_email']   = $CI->db->query('select smtp_user from email_config')->row()->smtp_user;
-            // $log_email = $CI->EmailDefaultModel->insert_email_log($data_email);
+            // $log_email = $CI->emaildefaultmodel->insert_email_log($data_email);
             return $ret;
         }else{
         	// print_r($data_email_category);
@@ -1602,17 +1590,17 @@ function id_member(){
 function set_image_as_title_news($id_news){
     $CI=& get_instance();
     $CI->load->model('newsmodel');
-    $CI->load->model('filemanagerModel');
+    $CI->load->model('filemanagermodel');
     $news = $CI->newsmodel->findById($id_news);
     $news_ext = explode(".", $news['img']);
     $extension_img = '.'.$news_ext[1];
     $post_file['name'] = $news['uri_path'].$extension_img;
-    $check_image_exist = $CI->filemanagerModel->findBy(array('name'=>$post_file['name']));
+    $check_image_exist = $CI->filemanagermodel->findBy(array('name'=>$post_file['name']));
     if(!$check_image_exist and $news_ext[1] != ''){
 		$post['img'] = $news['uri_path'].$extension_img;
 		$CI->newsmodel->update($post,$id_news);
 		
-		$CI->filemanagerModel->insert($post_file);
+		$CI->filemanagermodel->insert($post_file);
 		
 		$fl = str_replace('//', '/', $path.'/'.$file);
 		

@@ -15,7 +15,7 @@ class web_configuration_model extends  CI_Model{
 	 	query_grid($alias,$isTotal);
 		$this->db->select('a.*');
 		// $this->db->join('web_config_type b', 'b.id = a.type_id', 'left');
-		$this->db->where_in('a.id',array(1,2,5,7,9,11,18));
+		// $this->db->where_in('a.id',array(1,2,5,7,9,11,18));
 		$query = $this->db->get($this->tableAs);
 		
 

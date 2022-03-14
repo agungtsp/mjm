@@ -85,7 +85,7 @@ defined('EXIT__AUTO_MIN')      			OR define('EXIT__AUTO_MIN', 9); // lowest auto
 defined('EXIT__AUTO_MAX')     			OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
-defined('APP_NAME') 					OR define('APP_NAME','MJM CMS');
+defined('APP_NAME') 					OR define('APP_NAME','ARDIA CMS');
 defined('BACKUP_DIR') 					OR define('BACKUP_DIR',	$_SERVER['DOCUMENT_ROOT'].'/../backup/');
 defined('UPLOAD_DIR') 					OR define('UPLOAD_DIR',	dirname(__FILE__)."/../../images/article/");
 defined('UPLOAD_DIR_PROFILE') 			OR define('UPLOAD_DIR_PROFILE',	dirname(__FILE__)."/../../images/member/");

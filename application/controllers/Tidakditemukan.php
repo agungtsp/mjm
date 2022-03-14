@@ -9,8 +9,8 @@ class TidakDiTemukan extends CI_Controller {
     // @ start 404 page code
     //
     public function index() {
-    	$data['seo_title'] = "AMCHAM INDONESIA";
-        $this->load->view("layout/ddi/404_error_page", $data);
+    	$data['seo_title'] = "MJM | Partner for Quality";
+        render("layout/ddi/404_error_page", $data);
 
     }
 

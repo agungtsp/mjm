@@ -262,7 +262,7 @@ class News extends CI_Controller
 
 
         if ($data['seo_title'] == '') {
-            $data['seo_title'] = "MJM";
+            $data['seo_title'] = "MJM | Partner for Quality";
         }
 
         $data['meta_description'] = preg_replace('/<[^>]*>/', '', $data['meta_description']);
@@ -548,7 +548,7 @@ class News extends CI_Controller
         $data['page_name'] = in_array($get_uri_cat['id'], id_child_news('56', 1)) ? 'Initiative Indonesia' : $get_uri_cat['name'];
 
         if ($data['seo_title'] == '') {
-            $data['seo_title'] = "MJM";
+            $data['seo_title'] = "MJM | Partner for Quality";
         }
         $data['meta_img']   = (!empty(array_filter($share_img))) ? getImgLink($share_img['filename'], 'large') : '';
         $data['head_title'] = $data['news_title'];

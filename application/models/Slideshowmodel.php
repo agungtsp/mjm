@@ -1,5 +1,5 @@
 <?php
-class SlideshowModel extends  CI_Model{
+class slideshowmodel extends  CI_Model{
 	var $table = 'slideshow';
 	var $tableAs = 'slideshow a';
     function __construct(){

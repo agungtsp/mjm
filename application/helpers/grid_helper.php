@@ -121,7 +121,7 @@ function json($page,$total_pages,$record,$data){
 		  $elements[] = array('id'=>$v['id'],'cell'=>$arr);
 	  }
 	 }
-	 echo JSON::encode(
+	 echo json_encode(
 							 array(
 								 'page'		=>	$page,
 								 'total'		=>	$total_pages,
