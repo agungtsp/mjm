@@ -92,6 +92,7 @@ class Clientarea extends CI_Controller {
 						$status  = 'success';
 						// $message = "Thanks, Your account will be proses 5 day work.";
 						$message = "Register successfully, please login.";
+						$reload = true;
 					} else{
 						$status  = 'error';
 						$message = "Sorry, Please Try Again proses";
