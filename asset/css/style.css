@@ -1252,7 +1252,6 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(0,0,0,.125);
-    background: #eee;
 }
 .l-product img {
     max-width: 90%;
