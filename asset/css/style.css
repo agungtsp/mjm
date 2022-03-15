@@ -428,6 +428,9 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 70px;
     padding-bottom: 70px;
 }
+.p-events {
+    padding-top: 220px;
+}
 .br-10 {
     border-radius: 10px;
 }
@@ -437,6 +440,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     border-color: #E8FAF8;
     border-width: 2px;
+    text-decoration: none;
 }
 .choose-mursmedic .card:hover {
     border-color: #026874;
@@ -452,9 +456,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 15px;
     font-size: 19px;
     font-weight: 700;
+    color: #444;
 }
 .choose-mursmedic .card p {
     margin-bottom: 0;
+    color: #444;
 }
 .mb-30 {
     margin-bottom: 30px;
