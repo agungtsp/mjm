@@ -1246,25 +1246,24 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     position: relative;
     border-radius: 10px;
-    display: block;
+    display: flex;
     margin-bottom: 25px;
+    background: #AAD3D8;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0,0,0,.125);
+    background: #eee;
 }
 .l-product img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    height: 100%;
-    width: auto;
+    max-width: 90%;
+    max-height: 90%;
     transition: ease all .8s;
-    -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
 }
 .l-product:hover img {
-    height: 130%;
+    transform: scale(1.1);
 }
 .main-list {
-    height: 600px;
+    height: 500px;
 }
 .l-product .desc {
     position: absolute;
@@ -1291,6 +1290,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 34px;
     color: #fff;
     font-weight: 700;
+    text-shadow: 0 0 3px rgb(0 0 0 / 50%);
 }
 .l-product.main-list .desc h2 {
     font-size: 48px;

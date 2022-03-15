@@ -313,8 +313,21 @@
 	.col-desc-prd {
 		padding-top: 20px;
 	}
+	.main-list {
+		height: 350px;
+	}
+	.l-product.main-list .desc h2 {
+		font-size: 34px;
+	}
+	.l-product .desc {
+		padding: 0px 20px 10px 20px;
+	}
 }
 @media screen and (max-width: 575px) {
+	.l-product.main-list .desc h2,
+	.l-product .desc h2 {
+		font-size: 24px;
+	}
 	.list-art-item img {
 		margin-bottom: 15px;
 	}
