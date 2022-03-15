@@ -23,7 +23,7 @@ class Careers extends CI_Controller
             $data["meta_description"]
         );
 
-        $data["active_articles"] = "active";
+        $data["active_careers"] = "active";
 
         $filter_career['id_lang'] = $id_lang;
         $sort = $_GET['sort'];
@@ -65,7 +65,7 @@ class Careers extends CI_Controller
             $data["meta_description"]
         );
 
-        $data["active_articles"] = "active";
+        $data["active_careers"] = "active";
 
         render("careers_detail", $data);
     }

@@ -14,12 +14,11 @@ class Aboutus extends CI_Controller
         $id_lang = id_lang();
         $this->load->model('pagesmodel');
         $filter_pages['id_lang'] = $id_lang;
-        $data = $this->pagesmodel->findBy($filter_pages);	
-        foreach ($data as $key => $value) {
-            $data['img'] = getImgLink($value['img'], 'large');
-            $data['description'] = $value['description'];
-            $data['sub_title'] = $value['sub_title'];
-        }
+        $filter_pages['title'] = 'About Us';
+        $data = $this->pagesmodel->findBy($filter_pages, 1);
+        $data['description'] = str_replace("{base_url}", base_url(), $data['description']);	
+        $data['img'] = getImgLink($data['img'], 'large');
+
         if ($data["seo_title"] == "") {
             $data["seo_title"] = "MJM | Partner for Quality";
         }

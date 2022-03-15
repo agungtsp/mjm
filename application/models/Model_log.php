@@ -30,7 +30,7 @@ class Model_log extends CI_Model{
     }
 
     function getLogById($id){
-        //$sql="SELECT a.id as id, a.log_name, a.activity, a.ip, b.id_auth_user, b.userid, b.username, , b.log_date, b.activity,b.email, b.id_auth_user_grup FROM access_log a, auth_user b WHERE a.id_auth_user=b.id_auth_user AND a.id='$id' LIMIT 0,1";
+        //$sql="SELECT a.id as id, a.log_name, a.activity, a.ip, b.id_auth_user, b.userid, b.full_name, , b.log_date, b.activity,b.email, b.id_auth_user_grup FROM access_log a, auth_user b WHERE a.id_auth_user=b.id_auth_user AND a.id='$id' LIMIT 0,1";
         $sql="SELECT * FROM auth_user_grup c, access_log a left join auth_user b on a.id_auth_user=b.id_auth_user where a.id='$id'";
         $data=$this->db->query($sql)->row_array();
         return $data; 

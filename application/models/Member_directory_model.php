@@ -26,7 +26,7 @@ class Member_directory_model extends  CI_Model{
 	function findById($id){
 		$where['a.id'] = $id;
 		$where['a.is_delete'] = 0;
-		$this->db->select('a.*, b.username, c.name as category,c.uri_path as uri_path_category');
+		$this->db->select('a.*, b.full_name, c.name as category,c.uri_path as uri_path_category');
 		$this->db->join('auth_user b','b.id_auth_user = a.user_id_create');
 		$this->db->join('news_category c','c.id = a.id_news_category');
 

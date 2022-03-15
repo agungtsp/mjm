@@ -26,19 +26,16 @@ class Product extends CI_Controller
 
         $filter_product['id_lang'] = $id_lang;
         $sort = $_GET['sort'];
-        if($sort==3){
-            $data['selected_3'] = 'selected';
-            $this->db->order_by('a.title','desc');
-        } else if($sort==2){
-            $data['selected_2'] = 'selected';
-            $this->db->order_by('a.title','asc');
-        } else {
-            $data['selected_1'] = 'selected';
-            $this->db->order_by('a.id','desc');
-        }
-        $data['list_product'] = $this->productmodel->findBy($filter_product);	
-        foreach ($data['list_product'] as $key => $value) {
-            $data['list_product'][$key]['img'] = getImgLink($value['img'], 'large');
+        $this->db->order_by('a.is_featured','desc');
+        $this->db->order_by('a.id','desc');
+        $list_product = $this->productmodel->findBy($filter_product);	
+        foreach ($list_product as $key => $value) {
+            $value['img'] = getImgLink($value['img'], 'large');
+            if($key==0){
+                $data['list_product_1'][] = $value;
+            } else {
+                $data['list_product'][] = $value;
+            }
         }   
 
         render("product", $data);
@@ -50,6 +47,8 @@ class Product extends CI_Controller
         $filter_product['uri_path'] = $uri_path;
         $data = $this->productmodel->findBy($filter_product, 1);
         $data['img'] = getImgLink($data['img'], 'large');
+        $data['img_2'] = getImgLink($data['img_2'], 'large');
+        $data['img_3'] = getImgLink($data['img_3'], 'large');
         if(!$data){
             redirect(base_url().'tidakditemukan');
         }
@@ -65,12 +64,17 @@ class Product extends CI_Controller
 
         $data["active_product"] = "active";
         
-        $filter_recomendation['id_lang'] = $id_lang;
-        $filter_recomendation['id !='] = $data['id'];
-        $data['list_recomendation'] = $this->productmodel->findBy($filter_recomendation);	
-        foreach ($data['list_recomendation'] as $key => $value) {
-            $data['list_recomendation'][$key]['img_recomendation'] = getImgLink($value['img'], 'large');
-        }    
+        $list_image = "";
+        if($data['img']){
+            $list_image .= '<div class="item"><img src="'.$data['img'].'" alt=""></div>';
+        }
+        if($data['img_2']){
+            $list_image .= '<div class="item"><img src="'.$data['img_2'].'" alt=""></div>';
+        }
+        if($data['img_3']){
+            $list_image .= '<div class="item"><img src="'.$data['img_3'].'" alt=""></div>';
+        }
+        $data['list_img'] = $list_image;
 
         render("product_detail", $data);
     }

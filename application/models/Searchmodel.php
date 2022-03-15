@@ -16,7 +16,7 @@ class SearchModel extends  CI_Model{
 		// $ttl_row = $this->db->get($this->tableAs)->num_rows();
 
 	 	query_grid($alias,$isTotal);
-		$this->db->select("a.*,b.name as news_category,c.name as status,d.username");
+		$this->db->select("a.*,b.name as news_category,c.name as status,d.full_name");
 		$this->db->where('a.id_status_publish',2);
 		$this->db->where('a.approval_level',100);
 		$this->db->where('a.is_delete',0);

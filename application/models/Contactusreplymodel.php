@@ -53,7 +53,7 @@ class contactusreplymodel extends  CI_Model{
 	}
 	function findBy($where,$is_single_row=0){
 		$where['a.is_delete'] = 0;
-		$this->db->select('a.*,b.username');
+		$this->db->select('a.*,b.full_name');
 		$this->db->join('auth_user b','b.id_auth_user = a.user_id_create');
 		
 		if($is_single_row==1){

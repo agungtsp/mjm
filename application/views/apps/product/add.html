@@ -63,9 +63,29 @@
 										<div class="col-md-9"><textarea  rows="4" id="teaser{nomor}" class="form-control" name="teaser[]">{teaser}</textarea></div>
 									</div>
 									<div class="form-group  no-margin">
-										<label class="col-md-2 control-label">Image <i class='req'>*</i></label>
+										<label class="col-md-2 control-label">Image 1<i class='req'>*</i></label>
 										<div class="col-md-9">
 											{img}
+											<div style="color: green">Size : 350px  x 300px</div><br/>
+											<a style="cursor: pointer;" onclick="delImage('{nomor}', '{base_url}')">Delete Image</a>
+											<input type="hidden" name="imgDelete[]" id="imgDelete{nomor}" value="0">
+										</div>
+
+									</div>
+									<div class="form-group  no-margin">
+										<label class="col-md-2 control-label">Image 2<i class='req'>*</i></label>
+										<div class="col-md-9">
+											{img_2}
+											<div style="color: green">Size : 350px  x 300px</div><br/>
+											<a style="cursor: pointer;" onclick="delImage('{nomor}', '{base_url}')">Delete Image</a>
+											<input type="hidden" name="imgDelete[]" id="imgDelete{nomor}" value="0">
+										</div>
+
+									</div>
+									<div class="form-group  no-margin">
+										<label class="col-md-2 control-label">Image 3<i class='req'>*</i></label>
+										<div class="col-md-9">
+											{img_3}
 											<div style="color: green">Size : 350px  x 300px</div><br/>
 											<a style="cursor: pointer;" onclick="delImage('{nomor}', '{base_url}')">Delete Image</a>
 											<input type="hidden" name="imgDelete[]" id="imgDelete{nomor}" value="0">

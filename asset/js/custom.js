@@ -122,3 +122,10 @@ $("#update_profile_btn").click(function(){
     }
 });
 
+$('.owl-product-dtl').owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    dots: true,
+    items: 1
+})

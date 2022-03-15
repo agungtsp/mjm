@@ -19,7 +19,7 @@ class productmodel extends  CI_Model{
 		// $ttl_row = $this->db->get($this->tableAs)->num_rows();
 
 	 	query_grid($alias,$isTotal);
-		$this->db->select("a.*,c.name as status,d.username, x.title as title_e");
+		$this->db->select("a.*,c.name as status,d.full_name, x.title as title_e");
 		$this->db->where('a.is_delete',0);
 		$this->db->where('a.id_parent_lang is null');
 		// $this->db->where('a.id_product_position = 0');
@@ -91,7 +91,7 @@ class productmodel extends  CI_Model{
 	function findById($id){
 		$where['a.id'] = $id;
 		$where['a.is_delete'] = 0;
-		$this->db->select('a.*,b.username');
+		$this->db->select('a.*,b.full_name');
 		$this->db->join('auth_user b','b.id_auth_user = a.user_id_create');
 
 		return 	$this->db->get_where($this->tableAs,$where)->row_array();

@@ -27,7 +27,7 @@ class homeadminmodel extends  CI_Model{
 		
 
 	 	query_grid($alias,$isTotal);
-		$this->db->select("e.*,a.is_delete as is_active, b.name as news_category,c.name as status,d.username, a.create_date as date_group");
+		$this->db->select("e.*,a.is_delete as is_active, b.name as news_category,c.name as status,d.full_name, a.create_date as date_group");
 		$this->db->where('e.is_delete',0);
 		$this->db->join('news e',"e.id = a.id_news",'left');
 		$this->db->join('news_category b',"b.id = e.id_news_category",'left');
@@ -59,7 +59,7 @@ class homeadminmodel extends  CI_Model{
 		
 
 	 	query_grid($alias,$isTotal);
-		$this->db->select("e.*,a.is_delete as is_active, b.name as news_category,c.name as status,d.username, a.create_date as date_group, a.id_category as category_top");
+		$this->db->select("e.*,a.is_delete as is_active, b.name as news_category,c.name as status,d.full_name, a.create_date as date_group, a.id_category as category_top");
 		$this->db->where('e.is_delete',0);
 		$this->db->join('news e',"e.id = a.id_news",'left');
 		$this->db->join('news_category b',"b.id = e.id_news_category",'left');

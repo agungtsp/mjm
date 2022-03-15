@@ -15,6 +15,8 @@
 		<link rel="stylesheet" type="text/css" href="{base_url}asset/fonts/inter.css">
 		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/animate.css">
+		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/owl.carousel.min.css">
+		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/owl.theme.default.min.css">
 		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/swiper-bundle.min.css">
 		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/style.css">
 		<link rel="stylesheet" type="text/css" href="{base_url}asset/css/responsive.css">
@@ -58,9 +60,15 @@
 				<li class="nav-item">
 				  <a class="nav-link {active_home}" href="{base_url_lang}">{lang_menu_home}</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link {active_aboutus}" href="{base_url_lang}aboutus">{lang_menu_about_us}</a>
-				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle {active_aboutus} {active_careers}" href="#" id="navAbout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						{lang_menu_about_us}
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navAbout">
+					  <li><a class="dropdown-item" href="{base_url_lang}aboutus">{lang_menu_about_us}</a></li>
+					  <li><a class="dropdown-item" href="{base_url_lang}careers">{lang_menu_careers}</a></li>
+					</ul>
+				  </li>
 				<li class="nav-item">
 				  <a class="nav-link {active_services}" href="{base_url_lang}services">{lang_menu_services}</a>
 				</li>
@@ -73,7 +81,7 @@
 				  </a>
 				  <ul class="dropdown-menu" aria-labelledby="navAbout">
 					<li><a class="dropdown-item" href="{base_url_lang}articles">{lang_menu_articles}</a></li>
-					<li><a class="dropdown-item" href="{base_url_lang}careers">{lang_menu_careers}</a></li>
+					<li><a class="dropdown-item" href="{base_url_lang}event">{lang_menu_event}</a></li>
 				  </ul>
 				</li>
 				<li class="nav-item">
@@ -146,6 +154,7 @@
 	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 	<script type="text/javascript" src="{base_url}asset/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="{base_url}asset/js/swiper-bundle.min.js"></script>
+	<script src="{base_url}asset/js/owl.carousel.min.js"></script>
 	<script src="{base_url}asset/js/wow.js"></script>
 	<script src="{base_url}asset/js/js.js"></script>
 	<script src="{base_url}asset/js/parsley.js"></script>

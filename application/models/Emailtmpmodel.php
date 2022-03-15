@@ -36,7 +36,7 @@ class emailtmpmodel extends  CI_Model{
 
 	 	query_grid($alias,$isTotal);
 
-		$this->db->select("a.*,c.name as status,d.username,e.name as email_category");
+		$this->db->select("a.*,c.name as status,d.full_name,e.name as email_category");
 
 		$this->db->where('a.is_delete',0);
 
@@ -178,7 +178,7 @@ class emailtmpmodel extends  CI_Model{
 
 		$where['a.is_delete'] = 0;
 
-		$this->db->select('a.*,b.username');
+		$this->db->select('a.*,b.full_name');
 
 		$this->db->join('auth_user b','b.id_auth_user = a.user_id_create');
 

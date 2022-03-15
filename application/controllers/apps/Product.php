@@ -69,6 +69,16 @@ class Product extends CI_Controller {
 			$imagemanager										= imagemanager('img',$img_thumb,350,300,$key);
 			$data['list_lang'][$key]['img']						= $imagemanager['browse'];
 			$data['list_lang'][$key]['imagemanager_config']		= $imagemanager['config'];
+
+			$img_thumb											= image($datas[$key]['img_2'],'large');
+			$imagemanager										= imagemanager('img_2',$img_thumb,350,300,$key);
+			$data['list_lang'][$key]['img_2']						= $imagemanager['browse'];
+			$data['list_lang'][$key]['imagemanager_config_2']		= $imagemanager['config'];
+
+			$img_thumb											= image($datas[$key]['img_3'],'large');
+			$imagemanager										= imagemanager('img_3',$img_thumb,350,300,$key);
+			$data['list_lang'][$key]['img_3']						= $imagemanager['browse'];
+			$data['list_lang'][$key]['imagemanager_config_3']		= $imagemanager['config'];
 		}
 
 		$data['list_lang2']		= $data['list_lang'];
@@ -131,6 +141,24 @@ class Product extends CI_Controller {
 					$data_save['img']	= $datas[$key]['img'];
 				}else{
 					$data_save['img']	= $post['img'][$key];
+				}
+
+				if($idedit && $post['img_2'][$key]){
+					$data_save['img_2']	= $post['img_2'][$key];
+				}elseif($idedit){
+					$datas 				= $this->productmodel->selectData($idedit);
+					$data_save['img_2']	= $datas[$key]['img_2'];
+				}else{
+					$data_save['img_2']	= $post['img_2'][$key];
+				}
+
+				if($idedit && $post['img_3'][$key]){
+					$data_save['img_3']	= $post['img_3'][$key];
+				}elseif($idedit){
+					$datas 				= $this->productmodel->selectData($idedit);
+					$data_save['img_3']	= $datas[$key]['img_3'];
+				}else{
+					$data_save['img_3']	= $post['img_3'][$key];
 				}
 
 				if($idedit){

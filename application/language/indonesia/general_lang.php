@@ -19,6 +19,7 @@ $lang['lang_call_us_now'] = 'Hubungi Kami!';
 $lang['lang_email_us'] = 'E-mail Kami';
 $lang['lang_read_more'] = 'Baca Selengkapnya';
 $lang['lang_top_article'] = 'Artikel Terpopuler';
+$lang['lang_buy_now'] = 'Beli Sekarang';
 
 $lang['lang_need_urgent'] = 'Butuh Saran Mendesak?';
 $lang['lang_need_urgent_offer'] = 'Dengan bergabung di member area kami, Anda akan mendapatkan banyak layanan khusus & banyak penawaran menarik lainnya.';

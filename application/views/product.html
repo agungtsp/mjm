@@ -1,16 +1,49 @@
-<div class="" style="height:300px">&nbsp;</div>
-<section class="need-urgent">
+<section class="bg-blue-title">
   <div class="container text-center">
-    <h3 class="wow fadeInUp">{lang_need_urgent}</h3>
-    <p class="wow fadeInUp">{lang_need_urgent_offer}</p>
-    <div class="text-center">
-      <div class="d-inline-flex btn-nu">
-        <a href="#" class="btn btn-yellow-outline wow fadeInLeft">
-          <i>{lang_need_urgent_assistance}</i>
-          <i>{single_phone}</i>
-        </a>
-        <span class="wow fadeInUp {hide_login_member}">or</span>
-        <a href="{base_url_lang}clientarea" class="btn btn-yellow wow fadeInRight {hide_login_member}">{lang_need_urgent_join}</a>
+    <h3 class="wow fadeInUp"><b>Our <span class="text-blue">Product</span></b></h3>
+    <p class="wow fadeInUp"><i>Produce Your Own Medical Device And Household Locally Now!</i></p>
+  </div>
+</section>
+
+<section class="product-page">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 col-md-10">
+        <div class="row">
+          {list_product_1}
+          <div class="col-md-12">
+            <a href="{base_url_lang}product/detail/{uri_path}" class="l-product main-list wow fadeInUp">
+              <img src="{img}" alt="">
+              <div class="desc">
+                <span>{teaser}</span>
+                <h2>{title}</h2>
+              </div>
+            </a>
+          </div>
+          {/list_product_1}
+          {list_product}
+          <div class="col-md-6">
+            <a href="{base_url_lang}product/detail/{uri_path}" class="l-product wow fadeInUp">
+              <img src="{img}" alt="">
+              <div class="desc">
+                <span>{teaser}</span>
+                <h2>{title}</h2>
+              </div>
+            </a>
+          </div>
+          {/list_product}
+              <!-- <div class="text-center mt-5 wow fadeInUp">
+                  <nav aria-label="">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#"><i data-feather="chevron-left"></i></a></li>
+                  <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#"><i data-feather="chevron-right"></i></a></li>
+                </ul>
+              </nav>
+            </div> -->
+        </div>
       </div>
     </div>
   </div>

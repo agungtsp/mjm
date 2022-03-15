@@ -30,7 +30,7 @@ class emaildefaultmodel extends  CI_Model{
 
 	 	query_grid($alias,$isTotal);
 
-		$this->db->select("a.*,c.template_name, d.username");
+		$this->db->select("a.*,c.template_name, d.full_name");
 
 		$this->db->where('a.is_delete',0);
 
@@ -104,7 +104,7 @@ class emaildefaultmodel extends  CI_Model{
 
 		$where['a.is_delete'] = 0;
 
-		$this->db->select('a.*,b.username');
+		$this->db->select('a.*,b.full_name');
 
 		$this->db->join('auth_user b','b.id_auth_user = a.user_id_create');
 

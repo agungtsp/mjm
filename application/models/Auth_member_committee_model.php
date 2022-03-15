@@ -17,7 +17,7 @@ class Auth_member_committee_model extends  CI_Model{
 
 	 	query_grid($alias,$isTotal);
 		$this->db->select("a.*");
-		// $this->db->select("a.*,c.name as status,d.username");
+		// $this->db->select("a.*,c.name as status,d.full_name");
 		$this->db->where('a.is_delete',0);
 		// $this->db->where('a.id_parent_lang !=',0);
 		// $this->db->join('status_publish c',"c.id = a.id_status_publish",'left');

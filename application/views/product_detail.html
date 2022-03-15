@@ -1,55 +1,23 @@
-
-<section class="banner-page wow fadeInDown">
-  <img src="{base_url}asset/images/banner-product.jpg" alt="">
-</section>
-
-<section class="product p-page">
+<section class="product-detail">
   <div class="container">
-    <h2 class="title-sec text-start wow fadeInUp mb-5 mb-0-m">{lang_menu_product}</h2>
-    <div class="row justify-content-md-center py-5 mb-5">
-      <div class="col-md-10">
-        <div class="product-detail">
-          <div class="thumb wow fadeInLeft"><img src="{img}" alt=""></div>
-          <div class="desc wow fadeInRight">
-            <div>
-              <h3>{title}</h3>
-              <div class="price">
-                <!-- <span>{price}</span> -->
-                {price}
-              </div>
-              {description}
-              <div class="sku mt-5"><b>SKU:</b>{sku}</div>
-              <div class="share-dtl">
-                <b>Share:</b>
-                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50b440266b954307"></script>
-                <div class="addthis_inline_share_toolbox"></div>
-              </div>
-              <a class="btn btn-outline-primary py-1 d-block mt-5" href="{url}">Order Now</a>
-            </div>
-          </div>
+    <div class="row">
+      <div class="col-md-7">
+        <div class="owl-carousel owl-theme owl-product-dtl">
+            {list_img}
         </div>
       </div>
-    </div>
-    <h2 class="title-sec text-start wow fadeInUp">Our Recommendations</h2>
-    <div class="row">
-      {list_recomendation}
-      <div class="col-sm-4">
-        <a href="{base_url_lang}product/detail/{uri_path}" class="thumb thumb-rec wow fadeInLeft">
-          <img src="{img_recomendation}" alt="">
-        </a>
-      </div>
-      {/list_recomendation}
-    </div>
-  </div>
-</section>
-
-<section class="need-further">
-  <div class="container text-center">
-    <h3 class="wow fadeInUp mb-4">{lang_need_urgent}</h3>
-    <div class="text-center">
-      <div class="d-inline-flex">
-        <a href="tel:{single_phone}" class="btn btn-outline-light wow fadeInLeft me-3 px-4">{lang_call_us_now}</a>
-        <a href="mailto:{email_address}" class="btn btn-outline-light wow fadeInRight px-5">{lang_email_us}</a>
+      <div class="col-md-5 d-flex align-items-center col-desc-prd">
+        <div class="desc-prd">
+          <h3>{title}</h3>
+          {description}
+          <!-- <p class="mb-2"><b>Tags:</b></p>
+          <div class="tags-prd">
+            <a href="#">Perlindungan Seisi Rumah</a>
+            <a href="#">Anti Virus</a>
+            <a href="#">Disinfectant Spray</a>
+          </div> -->
+          <a href="{url}" target="_BLANK" class="btn btn-blue d-inline-flex px-5 mt-5">{lang_buy_now} <i class="ms-2" data-feather="shopping-cart"></i></a>
+        </div>
       </div>
     </div>
   </div>
