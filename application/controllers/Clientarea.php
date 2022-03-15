@@ -69,8 +69,8 @@ class Clientarea extends CI_Controller {
     		$this->form_validation->set_rules('phone', '"Phone"', 'required'); 
     		$this->form_validation->set_rules('company_name', '"Company Name"', 'required'); 
     		$this->form_validation->set_rules('password', '"Password"', 'required'); 
-    		$this->form_validation->set_rules('product_category[]', '"Product Category"', 'required'); 
-    		$this->form_validation->set_rules('type_of_product', '"Type of Product"', 'required'); 
+    		// $this->form_validation->set_rules('product_category[]', '"Product Category"', 'required'); 
+    		// $this->form_validation->set_rules('type_of_product', '"Type of Product"', 'required'); 
     		$this->form_validation->set_rules('message', '"Message"', 'required'); 
 			if ($this->form_validation->run() == FALSE){
 				 $message = validation_errors();
