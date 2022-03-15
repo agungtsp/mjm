@@ -19,7 +19,7 @@ class Pages extends CI_Controller {
             if(!$datas){
 				die('404');
 			}
-			$data 				= quote_form($datas);
+			$data 				= $datas;
 			$data['judul']		= 'Edit';
 			$data['proses']		= 'Update';
 		}
@@ -86,7 +86,7 @@ class Pages extends CI_Controller {
 	function proses($idedit=''){
 		$id_user 				=  id_user();
 		$this->layout 			= 'none';
-		$post 					= purify($this->input->post());
+		$post 					= $this->input->post();
 		$ret['error']			= 1;
 		$id_parent_lang 		= NULL;
 		$this->db->trans_start();

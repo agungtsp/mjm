@@ -13,6 +13,12 @@ class Services extends CI_Controller
     function index()
     {
         $id_lang = id_lang();
+        $this->load->model('pagesmodel');
+        $filter_pages['id_lang'] = $id_lang;
+        $filter_pages['title'] = 'Services';
+        $data = $this->pagesmodel->findBy($filter_pages, 1);
+        $data['description'] = str_replace("{base_url}", base_url(), $data['description']);	
+        $data['img'] = getImgLink($data['img'], 'large');
         if ($data["seo_title"] == "") {
             $data["seo_title"] = "MJM | Partner for Quality";
         }
@@ -25,38 +31,8 @@ class Services extends CI_Controller
 
         $data["active_services"] = "active";
 
-        $filter_services['id_lang'] = $id_lang;
-        $data['list_services'] = $this->servicemodel->findBy($filter_services);	
-        foreach ($data['list_services'] as $key => $value) {
-            $data['list_services'][$key]['img'] = getImgLink($value['img'], 'large');
-        }   
+        
 
         render("services", $data);
     }
-
-    function detail($uri_path)
-    {
-        $id_lang = id_lang();
-        $filter_service['id_lang'] = $id_lang;
-        $filter_service['uri_path'] = $uri_path;
-        $data = $this->servicemodel->findBy($filter_service, 1);
-        $data['img'] = getImgLink($data['img'], 'large');
-        if(!$data){
-            redirect(base_url().'tidakditemukan');
-        }
-        if ($data["seo_title"] == "") {
-            $data["seo_title"] = "MJM | Partner for Quality";
-        }
-
-        $data["meta_description"] = preg_replace(
-            "/<[^>]*>/",
-            "",
-            $data["meta_description"]
-        );
-
-        $data["active_services"] = "active";
-
-        render("services_detail", $data);
-    }
-
 }
