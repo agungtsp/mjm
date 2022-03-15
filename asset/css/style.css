@@ -125,6 +125,12 @@ h1, h2, h3, h4, h5, h6 {
     height: 100px;
     transition: ease all .5s;
 }
+.navbar-mjm .navbar-nav .dropdown-menu {
+    min-width: 180px;
+}
+.navbar-mjm  .dropdown-item.active, .navbar-mjm  .dropdown-item:active {
+    background-color: #026874;
+}
 .medsoc {
     text-align: right;
     white-space: nowrap;
@@ -1507,4 +1513,121 @@ h1, h2, h3, h4, h5, h6 {
 }
 .col-desc-prd {
     padding-top: 160px;
+}
+.p-services {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+#accordionServices {
+    border-top: 1px solid #f3d1bf;
+}
+#accordionServices .accordion-button {
+    font-size: 40px;
+    background: none;
+    color: #391400;
+    font-weight: 700;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #f3d1bf;
+    box-shadow: none;
+}
+#accordionServices .accordion-button:not(.collapsed) {
+    box-shadow: inset 0 -1px 0 #f3d1bf;
+}
+#accordionServices .accordion-button span {
+    width: 70px;
+    min-width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    background: #A30000;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    position: relative;
+}
+#accordionServices .accordion-button span img {
+    max-width: 45%;
+    max-height: 45%;
+    filter: invert(1);
+}
+#accordionServices .accordion-item {
+    border-color: #f3d1bf;
+    border: 0;
+}
+#accordionServices .accordion-button::after {
+    filter: invert(1);
+}
+#accordionServices .accordion-button::before {
+    position: absolute;
+    width: 41px;
+    height: 41px;
+    border-radius: 41px;
+    background: #A30000;
+    content: "";
+    right: 9px;
+}
+#accordionServices .accordion-body {
+    padding:  50px 0;
+}
+.acc-services {
+    display: flex;
+    align-items: center;
+}
+.acc-services .thumb {
+    height: 350px;
+    width: 450px;
+    min-width: 450px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+.acc-services .thumb img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.acc-services .desc {
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+}
+.acc-services ul {
+    padding: 0;
+}
+.acc-services ul li {
+    list-style: none;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 15px;
+}
+.acc-services ul li:before {
+    width: 28px;
+    height: 28px;
+    border-radius: 28px;
+    background: #A30000;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+}
+.acc-services ul li:after {
+    position: absolute;
+    left: 7.5px;
+    top: 7px;
+    content: "";
+    width: 12px;
+    height: 6px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid transparent;
+    transform: rotate(129deg);
 }

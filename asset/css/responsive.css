@@ -52,6 +52,13 @@
 	}
 }
 @media screen and (max-width: 991px) {
+	.acc-services .thumb {
+		min-width: 350px;
+		width: 350px;
+	}
+	.acc-services .desc {
+		padding-left: 30px;
+	}
 	header .navbar-collapse {
 	    position: fixed;
 	    left: 0px;
@@ -322,8 +329,51 @@
 	.l-product .desc {
 		padding: 0px 20px 10px 20px;
 	}
+	.acc-services {
+		flex-direction: column;
+	}
+	.acc-services .thumb {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.acc-services .desc {
+		padding-left: 0;
+	}
+	.acc-services .desc h2 {
+		font-size: 24px;
+	}
+	#accordionServices .accordion-button {
+		font-size: 24px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#accordionServices .accordion-button span {
+		width: 50px;
+	    min-width: 50px;
+	    height: 50px;
+	}
+	#accordionServices .accordion-button::before {
+		display: none;
+	}
+	#accordionServices .accordion-body {
+		padding-top: 30px;
+		padding-bottom: 15px;
+	}
 }
 @media screen and (max-width: 575px) {
+	#accordionServices .accordion-button {
+		font-size: 18px;
+	}
+	#accordionServices .accordion-button span {
+		width: 30px;
+	    min-width: 30px;
+	    height: 30px;
+	}
+	.acc-services .desc h2 {
+		font-size: 18px;
+	}
 	.l-product.main-list .desc h2,
 	.l-product .desc h2 {
 		font-size: 24px;
