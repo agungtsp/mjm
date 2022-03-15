@@ -1,6 +1,6 @@
 <?php
 
-class EmailTmpModel extends  CI_Model{
+class emailtmpmodel extends  CI_Model{
 
 	var $table = 'email_tmp';
 

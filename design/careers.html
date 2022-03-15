@@ -205,16 +205,16 @@
 
 		<section class="need-urgent">
 			<div class="container text-center">
-				<h3 class="wow fadeInUp">Need Urgent Advice?</h3>
-				<p class="wow fadeInUp">By joining our member area, you will get many special services & many other interesting offers.</p>
+				<h3 class="wow fadeInUp">{lang_need_urgent}</h3>
+				<p class="wow fadeInUp">{lang_need_urgent_offer}</p>
 				<div class="text-center">
 					<div class="d-inline-flex btn-nu">
 						<a href="#" class="btn btn-yellow-outline wow fadeInLeft">
-							<i>Call for Assistance</i>
-							<i>+6221 29078970</i>
+							<i>{lang_need_urgent_assistance}</i>
+							<i>{single_phone}</i>
 						</a>
-						<span class="wow fadeInUp">or</span>
-						<a href="#" class="btn btn-yellow wow fadeInRight">JOIN CLIENT AREA</a>
+						<span class="wow fadeInUp {hide_login_member}">or</span>
+						<a href="{base_url_lang}clientarea" class="btn btn-yellow wow fadeInRight {hide_login_member}">{lang_need_urgent_join}</a>
 					</div>
 				</div>
 			</div>
@@ -227,7 +227,7 @@
 						<img src="images/logo.png" alt="" height="50">
 						<h2>PT Mursmedic Jaya Mandiri (MJM)</h2>
 						<p>Head Office & Plant<br> Jl. Industri Selatan 5, Blok FF1/J, Jababeka<br> Phase 2, Pasir Sari, Cikarang Selatan,<br> Bekasi, Jawa Barat 17750 – INDONESIA</p>
-						<p>Phone: +6221 29078970 / +6221 29078971<br> Email: info@mursmedic.com</p>
+						<p>Phone: {single_phone} / +6221 29078971<br> Email: info@mursmedic.com</p>
 					</div>
 					<div class="col-md-3">
 						<h4>All Useful Links</h4>

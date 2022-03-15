@@ -3,7 +3,7 @@
 class ContactUsReceive extends CI_Controller {
 	function __construct(){
 		parent::__construct();
-		$this->load->model('contactusreceiveModel');
+		$this->load->model('contactusreceivemodel');
 	}
 	function index(){
 		// $data['list_topic'] = selectlist2(array('table'=>'contact_us_topic','title'=>'All Topic','selected'=>$data['id_topic']));
@@ -13,7 +13,7 @@ class ContactUsReceive extends CI_Controller {
 	}
 	public function add($id=''){
 		if($id){
-			$data = $this->contactusreceiveModel->findById($id);
+			$data = $this->contactusreceivemodel->findById($id);
             if(!$data){
 				die('404');
 			}
@@ -37,14 +37,14 @@ class ContactUsReceive extends CI_Controller {
 		render('apps/contact_us_receive/add',$data,'apps');
 	}
 	function records(){
-		$data = $this->contactusreceiveModel->records();
+		$data = $this->contactusreceivemodel->records();
 		render('apps/contact_us_receive/records',$data,'blank');
 	}
 	
 	function del(){
 		$this->db->trans_start();   
 		$id = $this->input->post('iddel');
-		$this->contactusreceiveModel->delete($id);
+		$this->contactusreceivemodel->delete($id);
 		detail_log(); 
 		insert_log('Delete Email Received');
 		$this->db->trans_complete();
@@ -66,13 +66,13 @@ class ContactUsReceive extends CI_Controller {
                 auth_update();
 				$ret['message'] = 'Update Success';
 				$act			= "Update Email Received";
-				$iddata = $this->contactusreceiveModel->update($post,$idedit);
+				$iddata = $this->contactusreceivemodel->update($post,$idedit);
 			}
 			else{
 				auth_insert();
 				$ret['message'] = 'Insert Success';
 				$act			= "Insert Email Received";
-				$iddata = $this->contactusreceiveModel->insert($post);
+				$iddata = $this->contactusreceivemodel->insert($post);
 			}
 			detail_log();
 			insert_log($act);

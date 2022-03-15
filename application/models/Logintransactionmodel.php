@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class loginTransactionModel extends CI_Model
+class logintransactionmodel extends CI_Model
 {
 	var $table = 'login_transaction';
 	function __construct(){
@@ -80,8 +80,8 @@ class loginTransactionModel extends CI_Model
     	$data['log_date'] =  date('Y-m-d H:i:s');
         $this->db->insert('access_log',$data);
         $this->session->sess_destroy();
-        $this->load->model('LoginTransactionModel');
-        $this->LoginTransactionModel->update($data['id_auth_user'],array('lock_date'=>$data['log_date'],'is_active'=>2),array('ip_address'=>$data['ip']));
+        $this->load->model('logintransactionmodel');
+        $this->logintransactionmodel->update($data['id_auth_user'],array('lock_date'=>$data['log_date'],'is_active'=>2),array('ip_address'=>$data['ip']));
         redirect('apps/login');
 	}
 }

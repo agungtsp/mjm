@@ -54,8 +54,8 @@ class Login extends CI_Controller {
     	$data['log_date'] =  date('Y-m-d H:i:s');
         $this->db->insert('access_log',$data);
         $this->session->sess_destroy();
-        $this->load->model('LoginTransactionModel');
-        $this->LoginTransactionModel->update($data['id_auth_user'],array('lock_date'=>$data['log_date'],'is_active'=>2),array('ip_address'=>$data['ip']));
+        $this->load->model('logintransactionmodel');
+        $this->logintransactionmodel->update($data['id_auth_user'],array('lock_date'=>$data['log_date'],'is_active'=>2),array('ip_address'=>$data['ip']));
         redirect('apps/login');
     }
 	

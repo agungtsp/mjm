@@ -33,7 +33,7 @@ class Log extends CI_Controller {
       
       $alias['id_auth_user'] = 'b.id_auth_user';
       $alias['userid'] = 'b.userid';
-      $alias['username'] = 'b.username';
+      $alias['username'] = 'b.fullname';
       $alias['log_date'] = 'a.log_date';
       $alias['activity'] = 'a.activity';
       $alias['ip'] = 'a.ip';

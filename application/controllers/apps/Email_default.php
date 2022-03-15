@@ -3,14 +3,14 @@
 class email_default extends CI_Controller {
 	function __construct(){
 		parent::__construct();
-		$this->load->model('EmailDefaultModel');
+		$this->load->model('emaildefaultmodel');
 	}
 	function index(){
 		render('apps/email_default/index',$data,'apps');
 	}
 	public function add($id=''){
 		if($id){
-			$data = $this->EmailDefaultModel->findById($id);
+			$data = $this->emaildefaultmodel->findById($id);
             if(!$data){
 				die('404');
 			}
@@ -34,7 +34,7 @@ class email_default extends CI_Controller {
 		render('apps/email_default/add',$data,'apps');
 	}
 	function records(){
-		$data = $this->EmailDefaultModel->records();
+		$data = $this->emaildefaultmodel->records();
 		render('apps/email_default/records',$data,'blank');
 	}
 	
@@ -56,13 +56,13 @@ class email_default extends CI_Controller {
                     auth_update();
 					$ret['message'] = 'Update Success';
 					$act			= "Update Email Template";
-					$this->EmailDefaultModel->update($post,$idedit);
+					$this->emaildefaultmodel->update($post,$idedit);
 				}
 				else{
 					auth_insert();
 					$ret['message'] = 'Insert Success';
 					$act			= "Insert News";
-					$idedit = $this->EmailDefaultModel->insert($post);
+					$idedit = $this->emaildefaultmodel->insert($post);
 				}
 			$this->db->trans_complete();
 			set_flash_session('message',$ret['message']);

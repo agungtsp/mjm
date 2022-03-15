@@ -4,142 +4,12 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->layout = 'none';
 		$this->load->model('homeadminmodel');
-		$this->load->model('newsmodel');
-		$this->load->model('newsversionmodel');
-		$this->load->model('newscategorymodel');
-		$this->load->model('newstagsmodel');
-		$this->load->model('newstagsversionmodel');
-		$this->load->model('tagsmodel');
-		$this->load->model('newsapprovalcommentmodel');
 		$this->load->model('authgroup_model','authGroupModel');
 		$this->load->model('model_user','userModel');
 	}
 	function index(){
 	    $_SESSION['adminLogin'] = true;
 		render('apps/home/home',$data,'apps');
-	}
-	function pending(){
-		if(group_id() == 2){
-			$data = $this->newsmodel->records_home(array('approval_level' => 0, 'is_revise'=>'1'));
-		} else {
-			$data = $this->newsmodel->records_home(array('approval_level' => $this->newsmodel->approvalLevelGroup, 'approval_level !='=>'0'));
-		}
-		foreach ($data['data'] as $key => $value) {
-			
-			$approval_level_news = $value['approval_level'];
-			$group = $this->authGroupModel->fetchRow(array('approval_level'=>$approval_level_news));
-			// $approval = $approval_level_news == 0 ? 'Draft' : ('Sent to '.$group['grup']);
-			if($approval_level_news == 0 && $value['is_revise']== 1){
-				$approval = 'Revise (writter)';
-			}
-			else if($approval_level_news == 1 && $value['is_revise']== 1){
-				$approval = 'Revise (editor)';
-			}
-			else if($this->newsmodel->approvalLevelGroup == $approval_level_news && $approval_level_news != 0){
-				$approval = '<a class="btn btn-primary" href="'.base_url().'apps/news/view/'.$value['id'].'" target="_BLANK">Review</>';
-			}
-			else if($approval_level_news == 100){
-				$approval = 'Approved';
-			}
-			else if($approval_level_news == 0){
-				$approval = 'Draft';
-			}
-			else{
-				$approval = 'Sent to '.$group['grup'];
-			}
-			$data['data'][$key]['is_publisher'] = (group_id() == 4 or group_id() == 5 or group_id() == 1) ? '' : 'invis';
-			$data['data'][$key]['news_title'] 		= quote_form($value['news_title']);
-			$data['data'][$key]['publish_date'] 	= iso_date($value['publish_date']);
-			$data['data'][$key]['expected_publish_date'] 	= iso_date($value['expected_publish_date']);
-			$data['data'][$key]['modify_date'] 	= iso_date($value['modify_date']);
-			$data['data'][$key]['approval_level'] 	= $approval;
-			$data['data'][$key]['edit'] 		 	= is_edit_news($value['id'],$value['user_id_create'],$approval_level_news,'delete','news');
-			$data['data'][$key]['delete'] 		 	= is_delete_news($value['id'],$value['user_id_create'],$approval_level_news);
-		}
-		render('apps/news/records',$data,'blank');
-	}
-	function approve(){
-		$data = $this->newsmodel->records_home(array('approval_level' => 100));
-		foreach ($data['data'] as $key => $value) {
-			$approval_level_news = $value['approval_level'];
-			$group = $this->authGroupModel->fetchRow(array('approval_level'=>$approval_level_news));
-			// $approval = $approval_level_news == 0 ? 'Draft' : ('Sent to '.$group['grup']);
-			if($approval_level_news == 0 && $value['is_revise']== 1){
-				$approval = 'Revise (writter)';
-			}
-			else if($approval_level_news == 1 && $value['is_revise']== 1){
-				$approval = 'Revise (editor)';
-			}
-			else if($this->newsmodel->approvalLevelGroup == $approval_level_news && $approval_level_news != 0){
-				$approval = '<a class="btn btn-primary" href="'.base_url().'apps/news/view/'.$value['id'].'" target="_BLANK">Review</>';
-			}
-			else if($approval_level_news == 100){
-				$approval = 'Approved';
-			}
-			else if($approval_level_news == 0){
-				$approval = 'Draft';
-			}
-			else{
-				$approval = 'Sent to '.$group['grup'];
-			}
-			$data['data'][$key]['is_publisher'] = (group_id() == 4 or group_id() == 5 or group_id() == 1) ? '' : 'invis';
-			$data['data'][$key]['news_title'] 		= quote_form($value['news_title']);
-			$data['data'][$key]['publish_date'] 	= iso_date($value['publish_date']);
-			$data['data'][$key]['expected_publish_date'] 	= iso_date($value['expected_publish_date']);
-			$data['data'][$key]['modify_date'] 	= iso_date($value['modify_date']);
-			$data['data'][$key]['approval_level'] 	= $approval;
-			$data['data'][$key]['edit'] 		 	= is_edit_news($value['id'],$value['user_id_create'],$approval_level_news,'delete','news');
-			$data['data'][$key]['delete'] 		 	= is_delete_news($value['id'],$value['user_id_create'],$approval_level_news);
-		}
-		render('apps/news/records',$data,'blank');
-	}
-	function schedule(){
-		$data = $this->newsmodel->records_home(array('approval_level' => 100, 'publish_date >' => date('Y-m-d'), 'id_status_publish'=> 2));
-		foreach ($data['data'] as $key => $value) {
-			$approval_level_news = $value['approval_level'];
-			$group = $this->authGroupModel->fetchRow(array('approval_level'=>$approval_level_news));
-			// $approval = $approval_level_news == 0 ? 'Draft' : ('Sent to '.$group['grup']);
-			if($approval_level_news == 0 && $value['is_revise']== 1){
-				$approval = 'Revise (writter)';
-			}
-			else if($approval_level_news == 1 && $value['is_revise']== 1){
-				$approval = 'Revise (editor)';
-			}
-			else if($this->newsmodel->approvalLevelGroup == $approval_level_news && $approval_level_news != 0){
-				$approval = '<a class="btn btn-primary" href="'.base_url().'apps/news/view/'.$value['id'].'" target="_BLANK">Review</>';
-			}
-			else if($approval_level_news == 100){
-				$approval = 'Approved';
-			}
-			else if($approval_level_news == 0){
-				$approval = 'Draft';
-			}
-			else{
-				$approval = 'Sent to '.$group['grup'];
-			}
-			$data['data'][$key]['is_publisher'] = (group_id() == 4 or group_id() == 5 or group_id() == 1) ? '' : 'invis';
-			$data['data'][$key]['news_title'] 		= quote_form($value['news_title']);
-			$data['data'][$key]['publish_date'] 	= iso_date($value['publish_date']);
-			$data['data'][$key]['expected_publish_date'] 	= iso_date($value['expected_publish_date']);
-			$data['data'][$key]['modify_date'] 	= iso_date($value['modify_date']);
-			$data['data'][$key]['approval_level'] 	= $approval;
-			$data['data'][$key]['edit'] 		 	= is_edit_news($value['id'],$value['user_id_create'],$approval_level_news,'delete','news');
-			$data['data'][$key]['delete'] 		 	= is_delete_news($value['id'],$value['user_id_create'],$approval_level_news);
-		}
-		render('apps/news/records',$data,'blank');
-	}
-	
-	function all_news(){
-		$data = $this->newsmodel->records_all(array('approval_level' => 100, 'id_status_publish'=> 2));
-		foreach ($data as $key => $value) {
-			$ret[$key][] = iso_date_custom_format($value['publish_date'],'d/n/Y');
-			$ret[$key][] = 'News Will be Release';
-			$ret[$key][] = '#';
-			$ret[$key][] = '#2d353c';
-			$ret[$key][] = "<a href='".base_url()."apps/news/view/$value[id]' target='_BLANK'>". $value['news_title'] .
-			'</a><div class="text-right"><a href="'.base_url().'apps/news/" target="_BLANK">View More >></a></div>';
-		}
-		echo json_encode($ret);
 	}
 
 	function check_valid_file() {
@@ -207,11 +77,11 @@ class Home extends CI_Controller {
 	        echo json_encode($ret);
 	        exit;
 		}
-		$this->load->model('fileManagerModel');
+		$this->load->model('filemanagermodel');
 		if($post['id']) { //delete image
-			$this->fileManagerModel->delete($post['id'], array('user_id_modify'=>id_user(),'modify_date'=>date('Y-m-d H:i:s')));
+			$this->filemanagermodel->delete($post['id'], array('user_id_modify'=>id_user(),'modify_date'=>date('Y-m-d H:i:s')));
 		}
-		$total_records = $this->fileManagerModel->getTotal("(user_id_create = ".id_user() ." or is_public = 1) and name LIKE '%".$post['searchPicture']."%' and create_date LIKE '%".$tglsearch."%'");
+		$total_records = $this->filemanagermodel->getTotal("(user_id_create = ".id_user() ." or is_public = 1) and name LIKE '%".$post['searchPicture']."%' and create_date LIKE '%".$tglsearch."%'");
 		$per_page = 12;
 		$data['pages'] = ceil($total_records/$per_page);
 		$data['load'] = base_url().'apps/home/imagemanager';
@@ -229,7 +99,7 @@ class Home extends CI_Controller {
 		$offset = (($page_number-1) * $per_page);
 
 
-		$data['list_data'] = $this->fileManagerModel->getAll("(user_id_create = ".id_user() ." or is_public = 1) and name LIKE '%".$post['searchPicture']."%' and create_date LIKE '%".$tglsearch."%'", $per_page, $offset);
+		$data['list_data'] = $this->filemanagermodel->getAll("(user_id_create = ".id_user() ." or is_public = 1) and name LIKE '%".$post['searchPicture']."%' and create_date LIKE '%".$tglsearch."%'", $per_page, $offset);
 		render('apps/filemanager',$data,'blank');
 
 	}
@@ -243,113 +113,7 @@ class Home extends CI_Controller {
 		rename($ori_tmp,$ori);
 		unset($post['tmp']);
 		$post['user_id_create'] = id_user();
-		$this->load->model('fileManagerModel');
-		$this->fileManagerModel->insert($post);
-	}
-
-	function log_editors_choice(){
-		$data = $this->homeadminmodel->log_editor_choice(array('approval_level' => 100, 'publish_date <' => date('Y-m-d'), 'id_status_publish'=> 2));
-		$date_group = '';
-		foreach ($data['data'] as $key => $value) {
-			$approval_level_news = $value['approval_level'];
-			$group = $this->authGroupModel->fetchRow(array('approval_level'=>$approval_level_news));
-			// $approval = $approval_level_news == 0 ? 'Draft' : ('Sent to '.$group['grup']);
-			if($approval_level_news == 0 && $value['is_revise']== 1){
-				$approval = 'Revise (writter)';
-			}
-			else if($approval_level_news == 1 && $value['is_revise']== 1){
-				$approval = 'Revise (editor)';
-			}
-			else if($this->newsmodel->approvalLevelGroup == $approval_level_news && $approval_level_news != 0){
-				$approval = '<a class="btn btn-primary" href="'.base_url().'apps/news/view/'.$value['id'].'" target="_BLANK">Review</>';
-			}
-			else if($approval_level_news == 100){
-				$approval = 'Approved';
-			}
-			else if($approval_level_news == 0){
-				$approval = 'Draft';
-			}
-			else{
-				$approval = 'Sent to '.$group['grup'];
-			}
-			if($value['is_active']==1){
-				$is_active = "Not Active";
-			} else {
-				$is_active = "Active";
-			}
-			if($date_group != $value['date_group']){
-				$date_group = NULL;
-			}
-			$data['data'][$key]['date_group'] = '';
-			if(!$date_group){
-				$date_group = $value['date_group'];
-				$data['data'][$key]['date_group'] = '<tr><td colspan="9"><b> Date: '.$value['date_group'].' ; Status: ' . $is_active . '</td></b></tr>';
-			}
-
-			$data['data'][$key]['is_publisher']          = (group_id() == 4 or group_id() == 5 or group_id() == 1) ? '' : 'invis';
-			$data['data'][$key]['news_title']            = quote_form($value['news_title']);
-			$data['data'][$key]['publish_date']          = iso_date($value['publish_date']);
-			$data['data'][$key]['expected_publish_date'] = iso_date($value['expected_publish_date']);
-			$data['data'][$key]['modify_date']           = iso_date($value['modify_date']);
-			$data['data'][$key]['approval_level']        = $approval;
-			$data['data'][$key]['edit']                  = is_edit_news($value['id'],$value['user_id_create'],$approval_level_news,'delete','news');
-			$data['data'][$key]['delete']                = is_delete_news($value['id'],$value['user_id_create'],$approval_level_news);
-		}
-		render('apps/home/log_editors_choice',$data,'blank');
-	}
-
-	function log_top_content(){
-		$data = $this->homeadminmodel->log_top_content(array('approval_level' => 100, 'publish_date <' => date('Y-m-d'), 'id_status_publish'=> 2));
-		$date_group = '';
-		foreach ($data['data'] as $key => $value) {
-			$approval_level_news = $value['approval_level'];
-			$group               = $this->authGroupModel->fetchRow(array('approval_level'=>$approval_level_news));
-			// $approval = $approval_level_news == 0 ? 'Draft' : ('Sent to '.$group['grup']);
-			if($approval_level_news == 0 && $value['is_revise']== 1){
-				$approval = 'Revise (writter)';
-			}
-			else if($approval_level_news == 1 && $value['is_revise']== 1){
-				$approval = 'Revise (editor)';
-			}
-			else if($this->newsmodel->approvalLevelGroup == $approval_level_news && $approval_level_news != 0){
-				$approval = '<a class="btn btn-primary" href="'.base_url().'apps/news/view/'.$value['id'].'" target="_BLANK">Review</>';
-			}
-			else if($approval_level_news == 100){
-				$approval = 'Approved';
-			}
-			else if($approval_level_news == 0){
-				$approval = 'Draft';
-			}
-			else{
-				$approval = 'Sent to '.$group['grup'];
-			}
-			if($value['is_active']==1){
-				$is_active = "Not Active";
-			} else {
-				$is_active = "Active";
-			}
-			if($date_group != $value['date_group']){
-				$date_group = NULL;
-			}
-			$data['data'][$key]['date_group'] = '';
-			if($value['category_top']==0){
-				$value['category_top'] = 'Home';
-			} else {
-				// $value['category_top'] = $this->db->get_where('news_category', array('id'=>$value['category_top']))->row_array()['name'];
-			}
-			if(!$date_group){
-				$date_group = $value['date_group'];
-				$data['data'][$key]['date_group'] = '<tr><td colspan="9"><b> Date: '. $value['date_group'] .' ; Category: ' . $value['category_top'] . ' ; Status: ' . $is_active . ' </td></b></tr>';
-			}
-			$data['data'][$key]['is_publisher']          = (group_id() == 4 or group_id() == 5 or group_id() == 1) ? '' : 'invis';
-			$data['data'][$key]['news_title']            = quote_form($value['news_title']);
-			$data['data'][$key]['publish_date']          = iso_date($value['publish_date']);
-			$data['data'][$key]['expected_publish_date'] = iso_date($value['expected_publish_date']);
-			$data['data'][$key]['modify_date']           = iso_date($value['modify_date']);
-			$data['data'][$key]['approval_level']        = $approval;
-			$data['data'][$key]['edit']                  = is_edit_news($value['id'],$value['user_id_create'],$approval_level_news,'delete','news');
-			$data['data'][$key]['delete']                = is_delete_news($value['id'],$value['user_id_create'],$approval_level_news);
-		}
-		render('apps/home/log_top_content',$data,'blank');
+		$this->load->model('filemanagermodel');
+		$this->filemanagermodel->insert($post);
 	}
 }

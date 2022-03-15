@@ -1,0 +1,18 @@
+label.parsley-errors-list {
+    padding: 0;
+    /*margin: 2px 5px 6px 10px;*/
+    font-style: italic;
+}
+label.parsley-errors-list>span {
+  list-style: none !important;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  color: #bf0b1c;
+}
+.owl-item .item a{
+  text-decoration: none;
+}
+.list-top{
+  height: 145px;
+}

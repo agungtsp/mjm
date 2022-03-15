@@ -40,7 +40,7 @@ class Footer_images extends CI_Controller {
 			$data['list_lang'][$key]['title']			= $datas[$key]['title'];
 			$data['list_lang'][$key]['url']				= $datas[$key]['url'];
 			
-			$img_thumb											= image($datas[$key]['img'],'small');
+			$img_thumb											= image($datas[$key]['img'],'large');
 			$imagemanager										= imagemanager('img',$img_thumb,320,180,$key,$datas[$key]['title'],'title'.$key);
 			$data['list_lang'][$key]['img']						= $imagemanager['browse'];
 			$data['list_lang'][$key]['imagemanager_config']		= $imagemanager['config'];

@@ -1,6 +1,6 @@
 <?php
 
-class EmailDefaultModel extends  CI_Model{
+class emaildefaultmodel extends  CI_Model{
 
 	var $table = 'ref_email_category';
 

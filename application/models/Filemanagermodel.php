@@ -1,5 +1,5 @@
 <?php
-class FileManagerModel extends  CI_Model{
+class filemanagermodel extends  CI_Model{
 	var $table = 'file_manager';
 	var $tableAs = 'file_manager a';
     function __construct(){

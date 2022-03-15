@@ -1,5 +1,5 @@
 <?php
-class contactUsReplyModel extends  CI_Model{
+class contactusreplymodel extends  CI_Model{
 	var $table = 'contact_us_reply';
 	var $tableAs = 'contact_us_reply a';
     function __construct(){

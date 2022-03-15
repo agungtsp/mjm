@@ -43,13 +43,13 @@ class Auth_model extends CI_Model
 										//menampung data array yang terquery pada db
 					$user_sess = array();
 					$user_sess = array(
-					'admin_name'=>$row->username,
-					'admin_id_auth_user_group'=>$row->id_auth_user_grup,
-					'id'=>$row->id_auth_user,
-					'admin_id_auth_user'=>$row->id_auth_user,
-					'admin_id_ref'=>$row->id_ref,
-					'admin_type'=>$row->tipe,
-					'profil_mitra_id'=>$row->profil_mitra_id
+						'admin_name'=>$row->full_name,
+						'admin_id_auth_user_group'=>$row->id_auth_user_grup,
+						'id'=>$row->id_auth_user,
+						'admin_id_auth_user'=>$row->id_auth_user,
+						'admin_id_ref'=>$row->id_ref,
+						'admin_type'=>$row->tipe,
+						'profil_mitra_id'=>$row->profil_mitra_id
 					);
 					$_SESSION['adminLogin'] = true;
                     //set data $user_sess

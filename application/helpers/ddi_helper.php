@@ -22,7 +22,7 @@ function is_file_copy($path,$file){
 function upload_file($field,$path='',$allowed_type='*',$max_size=0){
 	 $CI 		= & get_instance();
 	 $name 		= strtolower($_FILES[$field]['name']);
-	 $ext		= end(explode('.',$name));
+	 $ext		= @end(explode('.',$name));
 	 $CI->load->helper(array('form', 'url'));
 	 $config['upload_path'] 	= UPLOAD_DIR.$path;
 	 $config['allowed_types'] 	= $allowed_type;
@@ -37,7 +37,7 @@ function upload_file($field,$path='',$allowed_type='*',$max_size=0){
 		  return $CI->upload->data();
 	 }
 }
-function imagemanager($field='img',$img='',$max_width_cropzoom=277,$max_height_cropzoom=150,$id,$imgname='',$idTitle){
+function imagemanager($field='img',$img='',$max_width_cropzoom=277,$max_height_cropzoom=150,$id,$imgname='',$idTitle=''){
 	$CI 		= & get_instance();
 	$html['config'] = '
 	<div class="modal fade invis" id="popImageManager">

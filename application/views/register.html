@@ -1,0 +1,84 @@
+<section class="bg-blue-title">
+    <div class="container text-center">
+        <h3 class="wow fadeInUp"><b><span class="text-blue">Client Area</span> Registration Form</b></h3>
+        <p class="wow fadeInUp"><i>We’ll Never Share Your Data With Anyone Else</i></p>
+    </div>
+</section>
+
+<section class="form-client">
+    <form action="" id="form1">
+    <div class="container">
+        <div class="row row-fc">
+            <div class="col-md-6 mb-5 col-fc wow fadeInUp">
+                <label for="">NAME</label>
+                <input type="text" class="form-control" name="full_name" id="full_name" required>
+            </div>
+            <div class="col-md-6 mb-5 col-fc wow fadeInUp">
+                <label for="">EMAIL</label>
+                <input type="email" class="form-control" name="email" id="email" required>
+            </div>
+            <div class="col-md-6 mb-5 col-fc wow fadeInUp">
+                <label for="">COMPANY NAME</label>
+                <input type="text" class="form-control" name="company_name" id="company_name" required>
+            </div>
+            <div class="col-md-6 mb-5 col-fc wow fadeInUp">
+                <label for="">PHONE NUMBER</label>
+                <input type="text" class="form-control" name="phone" id="phone" required>
+            </div>
+            <div class="col-md-6 mb-5 col-fc wow fadeInUp">
+                <label for="">Password</label>
+                <input type="password" class="form-control" name="password" id="password" required>
+            </div>
+            <div class="col-md-6 mb-5 col-fc wow fadeInUp">
+                <label for="">Re-type Password</label>
+                <input type="password" class="form-control" name="retype_password" id="retype_password" data-parsley-equalto="#password" required>
+            </div>
+        </div>
+        <div class="row row-fc">
+            <div class="col-md-6 mb-5 col-fc wow fadeInUp">
+                <label for="">PRODUCT CATEGORY</label>
+                <div>
+                    <div class="form-check form-check-inline me-5">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" name="product_category[]" required data-parsley-errors-container="#error_product_category">
+                      <label class="form-check-label" for="inlineCheckbox1">PKRT (Household)</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="2" name="product_category[]">
+                      <label class="form-check-label" for="inlineCheckbox2">Alat Kesehatan (Medical Device)</label>
+                    </div>
+                    <span id="error_product_category"></span>
+                </div>	
+            </div>
+            <div class="col-md-6 mb-5 col-fc wow fadeInUp">
+                <label for="">TYPES OF PRODUCTS</label>
+                <div>
+                    <div class="form-check form-check-inline me-5">
+                      <input class="form-check-input" type="radio" name="type_of_product" id="inlineRadio1" value="1" required data-parsley-errors-container="#error_type_of_product">
+                      <label class="form-check-label" for="inlineRadio1">OEM</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="type_of_product" id="inlineRadio2" value="2" required>
+                      <label class="form-check-label" for="inlineRadio2">ODM</label>
+                    </div>
+                    <span id="error_type_of_product"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row row-fc">
+            <div class="col-md-12 mb-5 col-fc wow fadeInUp">
+                <label for="">MESSAGE</label>
+                <textarea class="form-control" rows="5" name="message" id="message" required></textarea>
+            </div>
+            <div class="col-md-12 mb-5 col-fc text-center wow fadeInUp">
+                <div class="d-inline-flex d-block-m">
+                    <button class="btn btn-blue m-auto px-5 wow fadeInUp" id="register_btn">REGISTER</button>
+                    <div class="btn-loginc wow fadeInUp">
+                        <span>or already have an account?</span>
+                        <a href="{base_url_lang}clientarea">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</section>

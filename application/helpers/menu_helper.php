@@ -254,9 +254,6 @@ function breadcrumb2($parent='',$ret=''){
 	$CI 		= & get_instance();
 	$id_lang 	= id_lang();
 	$CI->load->model('frontendmenumodel');
-	$CI->load->model('newscategorymodel');
-	$CI->load->model('eventcategorymodel');
-	$CI->load->model('gallerymodel');
 
 	$uri4		= purify($CI->uri->segment(4));
 	$uri3		= $CI->uri->segment(3);
@@ -272,16 +269,11 @@ function breadcrumb2($parent='',$ret=''){
 
 	if($uri2=='pages' || $uri2=='news' || $uri2=='event' || $uri2=='gallery'){
 		if($uri2 == 'news' && $uri3 == 'detail'){ // kalo news/detail
-			$CI->load->model('newsmodel');
 			// $where2['a.uri_path'] 	= $uri4;
 			$where2['a.id_lang'] 	= $id_lang;
 			$CI->db->like('a.uri_path',$uri4);
-			$data		 			= $CI->newsmodel->fetchRow($where2);
-
-			$newsCat	 			= $CI->newscategorymodel->findById($data['id_news_category']);
 			// $uri3		 			= $newsCat['uri_path'];
 			$uri3		 			= $uri2;
-			$last_bread		 		= $data['news_title'];
 			// print_r($data);exit;
 		}else if($uri2 == 'event' && $uri3 == 'detail'){ // kalo event/detail
 			$CI->load->model('eventmodel');

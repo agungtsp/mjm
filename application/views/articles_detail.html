@@ -1,0 +1,61 @@
+<section class="article">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="f-article">
+          <div class="list-article">
+            <div class="list-art-item">
+              <img src="{img}" alt="">
+              <div class="d-flex">
+                <!-- <a href="#">2 comments</a> -->
+                <span class="date-art">{created_at}</span>
+              </div>
+              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50b440266b954307"></script>
+              <div class="addthis_inline_share_toolbox"></div>
+              <h2>{title}</h2>
+              {description}
+              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50b440266b954307"></script>
+              <div class="addthis_inline_share_toolbox"></div>
+            </div>
+          </div>
+          <div class="top-article">
+            <h5 class="mb-4 text-uppercase">{lang_top_article}</h5>
+            {list_top_articles}
+            <a href="{base_url_lang}articles/detail/{uri_path_top_article}" class="list-top">
+              <img src="{img_top_article}" alt="">
+              <span>{title_top_article}</span>
+            </a>
+            {/list_top_articles}
+            <!-- <div class="tags">
+              <h5 class="mb-4 mt-5">TAGS</h5>
+              <a href="#">Promo</a>
+              <a href="#">Dolidays</a>
+              <a href="#">Gift</a>
+              <a href="#">Chrismas</a>
+              <a href="#">Giveaway</a>
+              <a href="#">Tips</a>
+              <a href="#">New Year</a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="need-urgent">
+  <div class="container text-center">
+    <h3 class="wow fadeInUp">{lang_need_urgent}</h3>
+    <p class="wow fadeInUp">{lang_need_urgent_offer}</p>
+    <div class="text-center">
+      <div class="d-inline-flex btn-nu">
+        <a href="#" class="btn btn-yellow-outline wow fadeInLeft">
+          <i>{lang_need_urgent_assistance}</i>
+          <i>{single_phone}</i>
+        </a>
+        <span class="wow fadeInUp {hide_login_member}">or</span>
+        <a href="{base_url_lang}clientarea" class="btn btn-yellow wow fadeInRight {hide_login_member}">{lang_need_urgent_join}</a>
+      </div>
+    </div>
+  </div>
+</section>
