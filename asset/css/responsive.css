@@ -1,4 +1,11 @@
-
+@media screen and (max-width: 1399px) {
+	.list-event .thumb {
+		height: 210px;
+	}
+	.main-le .thumb {
+		height: 320px;
+	}
+}
 @media screen and (max-width: 1199px) {
 	.container, .container-md, .container-sm {
 		max-width: 100%;
@@ -52,6 +59,18 @@
 	}
 }
 @media screen and (max-width: 991px) {
+	.list-event .thumb {
+		height: 140px;
+	}
+	.main-le .thumb {
+		height: 210px;
+	}
+	.list-event h2 {
+		font-size: 18px;
+	}
+	.main-le h2 {
+		font-size: 30px;
+	}
 	.acc-services .thumb {
 		min-width: 350px;
 		width: 350px;
@@ -124,6 +143,17 @@
 	}
 }
 @media screen and (max-width: 767px) {
+	.pt-165-m {
+		padding-top: 165px !important;
+	}
+	.list-event .thumb, 
+	.main-le .thumb {
+		height: 315px;
+	}
+	.list-event h2,
+	.main-le h2 {
+		font-size: 30px;
+	}
 	.navbar-mjm .c-navbar {
 		height: 60px;
 	}
@@ -363,6 +393,14 @@
 	}
 }
 @media screen and (max-width: 575px) {
+	.list-event .thumb, 
+	.main-le .thumb {
+		height: 180px;
+	}
+	.list-event h2,
+	.main-le h2 {
+		font-size: 18px;
+	}
 	#accordionServices .accordion-button {
 		font-size: 18px;
 	}
