@@ -127,9 +127,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 .navbar-mjm .navbar-nav .dropdown-menu {
     min-width: 180px;
+    background: #026874;
 }
-.navbar-mjm  .dropdown-item.active, .navbar-mjm  .dropdown-item:active {
-    background-color: #026874;
+.navbar-mjm .dropdown-item {
+    color: #fff;
+}
+.navbar-mjm .dropdown-item.active, .navbar-mjm .dropdown-item:active {
+    background-color: #014d56;
+}
+.navbar-mjm .dropdown-item:focus, .dropdown-item:hover {
+    background: #014d56;
 }
 .medsoc {
     text-align: right;
