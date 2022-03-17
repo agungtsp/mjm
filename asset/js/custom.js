@@ -137,4 +137,13 @@ $('.owl-testimonials').owlCarousel({
     dots: true,
     items: 2,
     center: true,
+    responsive : {
+        0 : {
+            center: false,
+            items: 1,
+        },
+        767 : {
+            center: true,
+        }
+    }
 })

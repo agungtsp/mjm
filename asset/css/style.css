@@ -1834,3 +1834,48 @@ h1, h2, h3, h4, h5, h6 {
 .owl-testimonials.owl-theme .owl-dots .owl-dot.active span, .owl-testimonials.owl-theme .owl-dots .owl-dot:hover span {
     background: #026874;
 }
+.faq {
+    padding-top: 70px;
+    padding-bottom: 100px;
+}
+.ls-3 {
+    letter-spacing: 3px;
+}
+#accordionTestimonials .accordion-button {
+    font-size: 24px;
+    font-weight: 700;
+    color: #707070;
+    padding: 35px;
+    border: 1px solid #2B6772;
+}
+#accordionTestimonials .accordion-item {
+    border: 0;
+}
+#accordionTestimonials .accordion-item:last-child .accordion-button {
+    border-bottom: 1px solid #2B6772;
+}
+#accordionTestimonials .accordion-button:not(.collapsed) {
+    background: #E8FAF8;
+    color: #444444;
+    border: 0;
+    box-shadow: none;
+}
+#accordionTestimonials .accordion-body {
+    background: #E8FAF8;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-bottom: 30px;
+}
+#accordionTestimonials .accordion-button::before {
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+    content: "";
+    position: absolute;
+    right: 29px;
+    top: calc(50% - 16px);
+    background: #026874;
+}
+#accordionTestimonials .accordion-button::after {
+    filter: invert(137) contrast(115.5) brightness(2293.5)  sepia(23);
+}

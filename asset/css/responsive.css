@@ -141,8 +141,24 @@
 	.col-dtl {
 		padding-left: 12.5px;
 	}
+	.about-page h1 {
+		font-size: 46px;
+	}
 }
 @media screen and (max-width: 767px) {
+	.testimonials {
+		padding-bottom: 0;
+	}
+	.f-testimonials {
+		opacity: 1;
+    	box-shadow: 0px 32px 64px #02687426;
+	}
+	.owl-testimonials.owl-theme .owl-dots {
+		bottom: 50px;
+	}
+	.about-page h1 {
+		margin-bottom: 30px;
+	}
 	.pt-165-m {
 		padding-top: 165px !important;
 	}
@@ -393,6 +409,12 @@
 	}
 }
 @media screen and (max-width: 575px) {
+	.about-page h1 {
+		font-size: 36px;
+	}
+	.f-desc {
+		padding: 20px;
+	}
 	.list-event .thumb, 
 	.main-le .thumb {
 		height: 180px;
@@ -512,6 +534,43 @@
 		height: 100%;
 		width: auto;
 	}
+	#accordionTestimonials .accordion-button {
+		padding: 20px;
+		font-size: 20px;
+	}
+	#accordionTestimonials .accordion-body {
+		padding-left: 20px;
+		padding-bottom: 20px;
+	}
+	#accordionTestimonials .accordion-button::before {
+		right: 14px;
+		display: none;
+	}
+	#accordionTestimonials .accordion-button::after {
+		filter: none;
+	}
+}
+@media screen and (max-width: 419px) {
+	.feature {
+		display: block;
+	}
+	.f-desc {
+		margin: 0;
+		text-align: center;
+		border-radius: 0;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+	.f-desc:last-child {
+		margin: 0;
+		margin-top: -1px;
+		border-radius: 0;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+	.f-desc span {
+		display: inline-flex;
+	}
 }
 @media screen and (max-width: 400px) {
 	.select-type {
@@ -542,6 +601,9 @@
 		line-height: 75px;
 	}
 	.subtitle-404 {
+		font-size: 18px;
+	}
+	#accordionTestimonials .accordion-button {
 		font-size: 18px;
 	}
 }
