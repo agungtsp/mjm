@@ -24,12 +24,12 @@ class Home extends CI_Controller
 
         $data["active_home"] = "active";
 
-        $this->load->model('slideshowmodel');
-        $filter_slideshow['id_lang'] = $id_lang;
-        $data['list_slideshow'] = $this->slideshowmodel->findBy($filter_slideshow);	
-        foreach ($data['list_slideshow'] as $key => $value) {
-            $data['list_slideshow'][$key]['img'] = getImgLink($value['img'], 'large');
-        }       
+        // $this->load->model('slideshowmodel');
+        // $filter_slideshow['id_lang'] = $id_lang;
+        // $data['list_slideshow'] = $this->slideshowmodel->findBy($filter_slideshow);	
+        // foreach ($data['list_slideshow'] as $key => $value) {
+        //     $data['list_slideshow'][$key]['img'] = getImgLink($value['img'], 'large');
+        // }       
         
         $this->load->model('productmodel');
         $filter_product['id_lang'] = $id_lang;
