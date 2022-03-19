@@ -17,7 +17,9 @@ class Aboutus extends CI_Controller
         $filter_pages['lower(title)'] = 'about us';
         $data = $this->pagesmodel->findBy($filter_pages, 1);
         $data['about_description'] = str_replace("{base_url}", base_url(), $data['description']);	
-        $data['about_img'] = getImgLink($data['img'], 'large');
+        $data['about_title'] = $data['title'];
+        $data['about_subtitle'] = $data['subtitle'];
+        $data['about_teaser'] = $data['teaser'];
 
         $id_lang = id_lang();
         $this->load->model('pagesmodel');
