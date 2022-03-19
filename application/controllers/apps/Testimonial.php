@@ -32,6 +32,7 @@ class Testimonial extends CI_Controller {
 			$data['background']			= '';
 			$data['color']				= '';
 			$data['description']		= '';
+			$data['rating']		= '';
 			$data['publish_date']		= date('d-m-Y');
 			$data['id'] 				= '';
             $data['url'] 				= '';
@@ -45,15 +46,12 @@ class Testimonial extends CI_Controller {
 			$data['list_lang'][$key]['validation']		= ($key==0) ? 'true' : 'false';
 			$data['list_lang'][$key]['nomor']			= $key;
 
-			$data['list_lang'][$key]['is_background_checked'] 	= ($datas[$key]['is_background'] == 1) ? 'checked' : '';
-			$data['list_lang'][$key]['position_left_checked'] 	= ($datas[$key]['is_box'] == 1) ? 'checked' : '';
-			$data['list_lang'][$key]['position_right_checked'] 	= ($datas[$key]['is_box'] == 2) ? 'checked' : '';
-			
 			$data['list_lang'][$key]['title'] 		= $datas[$key]['title'];
 			$data['list_lang'][$key]['sub_title'] 		= $datas[$key]['sub_title'];
 			$data['list_lang'][$key]['url'] 					= $datas[$key]['url'];
 			$data['list_lang'][$key]['publish_date'] 			= iso_date($datas[$key]['publish_date']);
 			$data['list_lang'][$key]['description'] 			= $datas[$key]['description'];
+			$data['list_lang'][$key]['rating'] 			= $datas[$key]['rating'];
 			// $data['list_lang'][$key]['description2'] 			= $datas[$key]['description2'];
 			$data['list_lang'][$key]['id_status_publish'] 		= $datas[$key]['id_status_publish'];
 			$data['list_lang'][$key]['id_lang'] 				= $datas[$key]['id_lang'];
@@ -141,12 +139,7 @@ class Testimonial extends CI_Controller {
 				$ret['message']  = validation_errors(' ',' ');
 			}else{
 				if($key==0){
-					if($idedit){
-						$data_save['is_background']	= ($post['is_background'][$key] != 1) ? 0 : 1;
-						$data_save['is_box']		= ($post['position'][$key] != 1) ? 0 : 1;
-					}
 					$idedit 			= $post['id'][$key];
-				 	$is_background 		= ($post['is_background'][$key] != 1) ? 0 : 1;
 				 	$position			= $post['position'][$key];
 				 	$publish_date		= iso_date($post['publish_date'][$key]);
 				 	$id_status_publish	= $post['id_status_publish'][$key];
@@ -155,11 +148,10 @@ class Testimonial extends CI_Controller {
 				$data_save['title'] 		= $post['title'][$key];
 				$data_save['sub_title'] 		= $post['sub_title'][$key];
 				$data_save['url'] 					= $post['url'][$key];
+				$data_save['rating'] 					= $post['rating'][$key];
 				$data_save['publish_date']			= $publish_date;
 				$data_save['description'] 			= $post['description'][$key];
 				// $data_save['description2'] 			= $post['description2'][$key];
-				$data_save['is_background'] 		= $is_background;
-				$data_save['is_box'] 				= $position;
 				$data_save['id_status_publish'] 	= $id_status_publish;
 				$data_save['id_lang'] 				= $post['id_lang'][$key];
 				$data_save['id_parent_lang']		= $id_parent_lang;

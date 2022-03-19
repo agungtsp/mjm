@@ -58,7 +58,7 @@ class Choose extends CI_Controller {
 			$data['list_lang'][$key]['list_status_publish'] 	= selectlist2(array('table'=>'status_publish','title'=>'Select Status','selected'=>$datas[$key]['id_status_publish']));
 			
 			$img_thumb											= image($datas[$key]['img'],'large');
-			$imagemanager										= imagemanager('img',$img_thumb,220,240,$key);
+			$imagemanager										= imagemanager('img',$img_thumb,200,200,$key);
 			$data['list_lang'][$key]['img']						= $imagemanager['browse'];
 			$data['list_lang'][$key]['imagemanager_config']		= $imagemanager['config'];
 		}
