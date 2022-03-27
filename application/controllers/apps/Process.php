@@ -65,6 +65,11 @@ class Process extends CI_Controller {
 			$imagemanager										= imagemanager('img',$img_thumb,220,240,$key);
 			$data['list_lang'][$key]['img']						= $imagemanager['browse'];
 			$data['list_lang'][$key]['imagemanager_config']		= $imagemanager['config'];
+
+			$icon_thumb											= image($datas[$key]['icon'],'large');
+			$imagemanager										= imagemanager('icon',$icon_thumb,220,240,$key);
+			$data['list_lang'][$key]['icon']						= $imagemanager['browse'];
+			$data['list_lang'][$key]['imagemanager_config']		= $imagemanager['config'];
 		}
 
 		$data['list_lang2']		= $data['list_lang'];
@@ -88,6 +93,8 @@ class Process extends CI_Controller {
 				
 				$data['list_lang'][$key]['img_thumb'] 				= image($datas[$key]['img'],'large');
 				$data['list_lang'][$key]['img_ori'] 				= image($datas[$key]['img'],'large');
+				$data['list_lang'][$key]['icon_thumb'] 				= image($datas[$key]['icon'],'large');
+				$data['list_lang'][$key]['icon_ori'] 				= image($datas[$key]['icon'],'large');
 				$data['list_lang'][$key]['style_position'] 			= '';
 				$data['list_lang'][$key]['style_background']		= '';
 
@@ -164,6 +171,15 @@ class Process extends CI_Controller {
 					$data_save['img']	= $datas[$key]['img'];
 				}else{
 					$data_save['img']	= $post['img'][$key];
+				}
+
+				if($idedit && $post['icon'][$key]){
+					$data_save['icon']	= $post['icon'][$key];
+				}elseif($idedit){
+					$datas 				= $this->processmodel->selectData($idedit);
+					$data_save['icon']	= $datas[$key]['icon'];
+				}else{
+					$data_save['icon']	= $post['icon'][$key];
 				}
 
 				if($idedit){

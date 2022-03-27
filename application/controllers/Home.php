@@ -62,6 +62,7 @@ class Home extends CI_Controller
         $data['list_process'] = $this->processmodel->findBy($filter_list_process);	
         foreach ($data['list_process'] as $key => $value) {
             $data['list_process'][$key]['img'] = getImgLink($value['img'], 'large');
+            $data['list_process'][$key]['icon'] = getImgLink($value['icon'], 'large');
         }
 
         $filter_choose_detail['id_lang'] = $id_lang;

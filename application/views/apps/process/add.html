@@ -36,7 +36,7 @@
 									</div>
 									<div class="form-group  no-margin">
 										<label class="col-md-2 control-label">Sub Title</label>
-										<div class="col-md-9"><input type="text" value="{sub_title}" id="sub_title{nomor}" class='form-control' name="sub_title[]"></div>
+										<div class="col-md-9"><textarea  rows="4" id="sub_title{nomor}" class="form-control" name="sub_title[]">{sub_title}</textarea></div>
 									</div>
 									<div class="form-group  no-margin">
 										<label class="col-md-2 control-label">Redirect URL</label>
@@ -54,7 +54,14 @@
 											<a style="cursor: pointer;" onclick="delImage('{nomor}', '{base_url}')">Delete Image</a>
 											<input type="hidden" name="imgDelete[]" id="imgDelete{nomor}" value="0">
 										</div>
-
+									</div>
+									<div class="form-group  no-margin">
+										<label class="col-md-2 control-label">Icon <i class='req'>*</i></label>
+										<div class="col-md-9">
+											{icon}
+											<a style="cursor: pointer;" onclick="delImage('{nomor}', '{base_url}')">Delete Image</a>
+											<input type="hidden" name="imgIconDelete[]" id="imgIconDelete{nomor}" value="0">
+										</div>
 									</div>
 									<!-- <div class="form-group  no-margin {invis}">
 										<label class="col-md-2 control-label">Publish Date </label>
