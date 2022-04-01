@@ -9,7 +9,7 @@
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 			    </div>
-			    <h4 class="panel-title">{judul} Slideshow</h4>
+			    <h4 class="panel-title">{judul} Testimonial</h4>
 			</div>
 			<div class="panel-body">
 				<div class="col-sm-12 col-lg-12 col-md-12">
@@ -31,12 +31,12 @@
 								{list_lang}
 								<div class="tab-pane fade {active}" id="nav-pills-tab-{nomor}">
 									<div class="form-group  no-margin">
-										<label class="col-md-2 control-label">Title <i class='req'>*</i></label>
-										<div class="col-md-9"><input type="text" value="{slideshow_title}" id="slideshow_title{nomor}" data-parsley-required="{validation}" class='form-control' name="slideshow_title[]"></div>
+										<label class="col-md-2 control-label">Full Name <i class='req'>*</i></label>
+										<div class="col-md-9"><input type="text" value="{title}" id="title{nomor}" data-parsley-required="{validation}" class='form-control' name="title[]"></div>
 									</div>
 									<div class="form-group  no-margin">
-										<label class="col-md-2 control-label">Sub Title</label>
-										<div class="col-md-9"><input type="text" value="{slideshow_sub_title}" id="slideshow_sub_title{nomor}" data-parsley-required="{validation}" class='form-control' name="slideshow_sub_title[]"></div>
+										<label class="col-md-2 control-label">Job</label>
+										<div class="col-md-9"><input type="text" value="{sub_title}" id="sub_title{nomor}" data-parsley-required="{validation}" class='form-control' name="sub_title[]"></div>
 									</div>
 									<div class="form-group  no-margin">
 										<label class="col-md-2 control-label">Redirect URL</label>
@@ -65,6 +65,10 @@
 											</div>
 									    </div>
 									</div> -->
+									<div class="form-group  no-margin {invis}">
+										<label class="col-md-2 control-label">Rating</label>
+										<div class="col-md-9"><input type="number" value="{rating}" id="rating{nomor}" class='form-control' name="rating[]"></div>
+									</div>
 									<div class="form-group  no-margin">
 										<label class="col-md-2 control-label">Description  </label>
 										<div class="col-md-9"><textarea  rows="4" id="description{nomor}" class="form-control" name="description[]">{description}</textarea></div>

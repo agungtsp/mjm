@@ -8,65 +8,67 @@ $pHeight =  $_POST["imageH"];
 $ext = explode(".", $file);
 $ext = strtolower($ext[count($ext) - 1]);
 $function = returnCorrectFunction($ext);
-$image = @$function($file);
-$width = imagesx($image);
-$height = imagesy($image);
-// Resample
-$image_p = imagecreatetruecolor($pWidth, $pHeight + 1);
-setTransparency($image, $image_p, $ext);
-imagecopyresampled($image_p, $image, 0, 0, 0, 0, $pWidth, $pHeight, $width, $height);
-imagedestroy($image);
-$widthR = imagesx($image_p);
-$hegihtR = imagesy($image_p);
-
-$selectorX = $_POST["selectorX"];
-$selectorY = $_POST["selectorY"];
-
-if ($_POST["imageRotate"]) {
-	$angle = 360 - $_POST["imageRotate"];
-	$image_p = imagerotate($image_p, $angle, 0);
-
-	$pWidth = imagesx($image_p);
-	$pHeight = imagesy($image_p);
-
-
-	$diffW = abs($pWidth - $widthR) / 2;
-	$diffH = abs($pHeight - $hegihtR) / 2;
-
-	$_POST["imageX"] = ($pWidth > $widthR ? $_POST["imageX"] - $diffW : $_POST["imageX"] + $diffW);
-	$_POST["imageY"] = ($pHeight > $hegihtR ? $_POST["imageY"] - $diffH : $_POST["imageY"] + $diffH);
+if($ext != "svg"){
+	$image = @$function($file);
+	$width = imagesx($image);
+	$height = imagesy($image);
+	// Resample
+	$image_p = imagecreatetruecolor($pWidth, $pHeight + 1);
+	setTransparency($image, $image_p, $ext);
+	imagecopyresampled($image_p, $image, 0, 0, 0, 0, $pWidth, $pHeight, $width, $height);
+	imagedestroy($image);
+	$widthR = imagesx($image_p);
+	$hegihtR = imagesy($image_p);
+	
+	$selectorX = $_POST["selectorX"];
+	$selectorY = $_POST["selectorY"];
+	
+	if ($_POST["imageRotate"]) {
+		$angle = 360 - $_POST["imageRotate"];
+		$image_p = imagerotate($image_p, $angle, 0);
+	
+		$pWidth = imagesx($image_p);
+		$pHeight = imagesy($image_p);
+	
+	
+		$diffW = abs($pWidth - $widthR) / 2;
+		$diffH = abs($pHeight - $hegihtR) / 2;
+	
+		$_POST["imageX"] = ($pWidth > $widthR ? $_POST["imageX"] - $diffW : $_POST["imageX"] + $diffW);
+		$_POST["imageY"] = ($pHeight > $hegihtR ? $_POST["imageY"] - $diffH : $_POST["imageY"] + $diffH);
+	}
+	
+	
+	
+	$dst_x = $src_x = $dst_y = $dst_x = 0;
+	$src_y = 1;
+	if ($_POST["imageX"] > 0) {
+		$dst_x = abs($_POST["imageX"]);
+	} else {
+		$src_x = abs($_POST["imageX"]);
+	}
+	if ($_POST["imageY"] > 0) {
+		$dst_y = abs($_POST["imageY"]);
+	} else {
+		$src_y = abs($_POST["imageY"]);
+	}
+	
+	
+	$viewport = imagecreatetruecolor($_POST["viewPortW"], $_POST["viewPortH"]);
+	setTransparency($image_p, $viewport, $ext);
+	
+	imagecopy($viewport, $image_p, $dst_x, $dst_y, $src_x, $src_y, $pWidth, $pHeight);
+	imagedestroy($image_p);
+	
+	
+	$selector = imagecreatetruecolor($_POST["selectorW"], $_POST["selectorH"]);
+	setTransparency($viewport, $selector, $ext);
+	imagecopy($selector, $viewport, 0, 0, $selectorX, $selectorY, $_POST["viewPortW"], $_POST["viewPortH"]);
+	
+	$file = "tmp/test" . time() . "." . $ext;
+	parseImage($ext, $selector, $file);
+	imagedestroy($viewport);
 }
-
-
-
-$dst_x = $src_x = $dst_y = $dst_x = 0;
-$src_y = 1;
-if ($_POST["imageX"] > 0) {
-	$dst_x = abs($_POST["imageX"]);
-} else {
-	$src_x = abs($_POST["imageX"]);
-}
-if ($_POST["imageY"] > 0) {
-	$dst_y = abs($_POST["imageY"]);
-} else {
-	$src_y = abs($_POST["imageY"]);
-}
-
-
-$viewport = imagecreatetruecolor($_POST["viewPortW"], $_POST["viewPortH"]);
-setTransparency($image_p, $viewport, $ext);
-
-imagecopy($viewport, $image_p, $dst_x, $dst_y, $src_x, $src_y, $pWidth, $pHeight);
-imagedestroy($image_p);
-
-
-$selector = imagecreatetruecolor($_POST["selectorW"], $_POST["selectorH"]);
-setTransparency($viewport, $selector, $ext);
-imagecopy($selector, $viewport, 0, 0, $selectorX, $selectorY, $_POST["viewPortW"], $_POST["viewPortH"]);
-
-$file = "tmp/test" . time() . "." . $ext;
-parseImage($ext, $selector, $file);
-imagedestroy($viewport);
 //Return value
 echo $file;
 /* Functions */
@@ -94,6 +96,8 @@ function returnCorrectFunction($ext)
 		case "gif":
 			$function = "imagecreatefromgif";
 			break;
+		case "svg":
+		break;
 	}
 	return $function;
 }
@@ -112,6 +116,8 @@ function parseImage($ext, $img, $file = null)
 			break;
 		case "gif":
 			imagegif($img, ($file ? $file : ''));
+			break;
+		case "svg":
 			break;
 	}
 }

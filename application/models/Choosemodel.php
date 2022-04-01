@@ -1,7 +1,7 @@
 <?php
-class slideshowmodel extends  CI_Model{
-	var $table = 'slideshow';
-	var $tableAs = 'slideshow a';
+class choosemodel extends  CI_Model{
+	var $table = 'choose';
+	var $tableAs = 'choose a';
     function __construct(){
        parent::__construct();
        $this->load->model('model_user');
@@ -13,19 +13,19 @@ class slideshowmodel extends  CI_Model{
 		$grup = $this->session->userdata['ADM_SESS']['admin_id_auth_user_group'];
 		$alias['search_uri_path'] = 'a.uri_path';
 		$alias['search_status_publish'] = 'c.id';
-		$alias['search_slideshow_title'] = 'a.slideshow_title';
-		$alias['search_slideshow_title_e'] = 'x.slideshow_title';
+		$alias['search_title'] = 'a.title';
+		$alias['search_title_e'] = 'x.title';
 		$alias['search_description'] = 'a.description';
 		// $ttl_row = $this->db->get($this->tableAs)->num_rows();
 
 	 	query_grid($alias,$isTotal);
-		$this->db->select("a.*,c.name as status,d.full_name, x.slideshow_title as slideshow_title_e");
+		$this->db->select("a.*,c.name as status,d.full_name, x.title as title_e");
 		$this->db->where('a.is_delete',0);
 		$this->db->where('a.id_parent_lang is null');
-		// $this->db->where('a.id_slideshow_position = 0');
+		// $this->db->where('a.id_position = 0');
 		$this->db->join('status_publish c',"c.id = a.id_status_publish",'left');
 		$this->db->join('auth_user d',"d.id_auth_user = a.user_id_create",'left');
-		$this->db->join('slideshow x',"x.id_parent_lang = a.id",'left');
+		$this->db->join('choose x',"x.id_parent_lang = a.id",'left');
 		
 		$query = $this->db->get($this->tableAs);
 		if($isTotal==0){
