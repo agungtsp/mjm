@@ -128,7 +128,7 @@ $('.owl-product-dtl').owlCarousel({
     nav: true,
     dots: true,
     items: 1
-})
+});
 
 $('.owl-testimonials').owlCarousel({
     loop: true,
@@ -146,4 +146,13 @@ $('.owl-testimonials').owlCarousel({
             center: true,
         }
     }
+});
+
+$('.owl-promotions').owlCarousel({
+    loop: true,
+    margin: 0,
+    nav: true,
+    dots: true,
+    items: 1,
+    navText: ["<span></span>","<span></span>"]
 })
