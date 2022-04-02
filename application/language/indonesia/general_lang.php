@@ -41,3 +41,4 @@ $lang['lang_get_in_touch'] = 'Hubungi Kami';
 $lang['lang_content_contact_us'] = 'Yuk, mulai hubungi kami dengan cepat dan mudah';
 
 $lang['lang_welcome'] = 'Selamat Datang';
+$lang['lang_our_event'] = 'Event Kami';

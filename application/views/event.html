@@ -1,96 +1,40 @@
 <section class="bg-blue-title pt-165-m">
   <div class="container text-center">
-    <h3 class="wow fadeInUp"><b>Our <span class="text-blue">Event</span></b></h3>
-    <p class="wow fadeInUp">“We Commit To Support Customer To Provide Excellent Service In Forms Of Product And System”</p>
+    <h3 class="wow fadeInUp">{event_sub_title}</h3>
+    <p class="wow fadeInUp">{event_teaser}</p>
   </div>
 </section>
 <section class="p-events">
   <div class="container">
     <div class="row">
+      {list_event_one}
       <div class="col-md-6">
-        <a href="event-detail.html" class="list-event main-le wow fadeInUp">
-          <div class="thumb"><img src="{base_url}asset/images/event.jpg" alt=""></div>
+        <a href="{base_url_lang}event/detail/{uri_path}" class="list-event main-le wow fadeInUp">
+          <div class="thumb"><img src="{img}" alt=""></div>
           <div class="desc">
             <span>Event</span>
-            <h2>Performance marketing agencies specialize</h2>
-            <i>7 Dec, 2021</i>
+            <h2>{title}</h2>
+            <i>{event_date}</i>
           </div>
         </a>
       </div>
-      <div class="col-md-6">
-        <a href="event-detail.html" class="list-event main-le wow fadeInUp">
-          <div class="thumb"><img src="{base_url}asset/images/event.jpg" alt=""></div>
-          <div class="desc">
-            <span>Event</span>
-            <h2>Digital marketing channels</h2>
-            <i>7 Dec, 2021</i>
-          </div>
-        </a>
-      </div>
+      {/list_event_one}
     </div>
     <div class="row">
+      {list_event_two}
       <div class="col-md-4">
-        <a href="event-detail.html" class="list-event wow fadeInUp">
-          <div class="thumb"><img src="{base_url}asset/images/event.jpg" alt=""></div>
+        <a href="{base_url_lang}event/detail/{uri_path}" class="list-event wow fadeInUp">
+          <div class="thumb"><img src="{img}" alt=""></div>
           <div class="desc">
             <span>Event</span>
-            <h2>Agency is a business you hire to outsource</h2>
-            <i>7 Dec, 2021</i>
+            <h2>{title}</h2>
+            <i>{event_date}</i>
           </div>
         </a>
       </div>
-      <div class="col-md-4">
-        <a href="event-detail.html" class="list-event wow fadeInUp">
-          <div class="thumb"><img src="{base_url}asset/images/event.jpg" alt=""></div>
-          <div class="desc">
-            <span>Event</span>
-            <h2>Outsource your digital marketing efforts</h2>
-            <i>7 Dec, 2021</i>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-4">
-        <a href="event-detail.html" class="list-event wow fadeInUp">
-          <div class="thumb"><img src="{base_url}asset/images/event.jpg" alt=""></div>
-          <div class="desc">
-            <span>Event</span>
-            <h2>Your business with a variety of digital</h2>
-            <i>7 Dec, 2021</i>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-4">
-        <a href="event-detail.html" class="list-event wow fadeInUp">
-          <div class="thumb"><img src="{base_url}asset/images/event.jpg" alt=""></div>
-          <div class="desc">
-            <span>Event</span>
-            <h2>Agency is a business you hire to outsource</h2>
-            <i>7 Dec, 2021</i>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-4">
-        <a href="event-detail.html" class="list-event wow fadeInUp">
-          <div class="thumb"><img src="{base_url}asset/images/event.jpg" alt=""></div>
-          <div class="desc">
-            <span>Event</span>
-            <h2>Outsource your digital marketing efforts</h2>
-            <i>7 Dec, 2021</i>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-4">
-        <a href="event-detail.html" class="list-event wow fadeInUp">
-          <div class="thumb"><img src="{base_url}asset/images/event.jpg" alt=""></div>
-          <div class="desc">
-            <span>Event</span>
-            <h2>Your business with a variety of digital</h2>
-            <i>7 Dec, 2021</i>
-          </div>
-        </a>
-      </div>
+      {/list_event_two}
     </div>
-    <div class="text-center mt-5 wow fadeInUp">
+    <!-- <div class="text-center mt-5 wow fadeInUp">
       <nav aria-label="">
         <ul class="pagination">
           <li class="page-item"><a class="page-link" href="#"><i data-feather="chevron-left"></i></a></li>
@@ -100,7 +44,7 @@
           <li class="page-item"><a class="page-link" href="#"><i data-feather="chevron-right"></i></a></li>
         </ul>
       </nav>
-    </div>
+    </div> -->
   </div>
 </section>
 <section class="need-urgent">

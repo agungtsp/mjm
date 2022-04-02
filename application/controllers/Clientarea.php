@@ -138,6 +138,14 @@ class Clientarea extends CI_Controller {
         foreach ($data['list_promotions'] as $key => $value) {
             $data['list_promotions'][$key]['img'] = getImgLink($value['img'], 'large');
         }
+
+		$filter_pages['id_lang'] = $id_lang;
+        $filter_pages['lower(title)'] = 'mjm contract manufacture';
+        $page = $this->pagesmodel->findBy($filter_pages, 1);
+        $data['mjm_contract_description'] = str_replace("{base_url}", base_url(), $page['description']);	
+        $data['mjm_contract_title'] = $page['title'];
+		$data['mjm_contract_img'] = getImgLink($page['img'], 'large');
+		$data['member_mjm_contract_active'] = "active";
 		render('profile',$data); 
 	}
 

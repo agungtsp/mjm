@@ -41,3 +41,5 @@ $lang['lang_get_in_touch'] = 'Get in touch';
 $lang['lang_content_contact_us'] = 'Come on, start contacting us quickly and easily';
 
 $lang['lang_welcome'] = 'Welcome';
+$lang['lang_our_event'] = 'Our Event';
+
