@@ -198,6 +198,7 @@
 	.pt-165-m {
 		padding-top: 165px !important;
 	}
+	.acc-profile .list-event .thumb,
 	.list-event .thumb, 
 	.main-le .thumb {
 		height: 315px;
@@ -474,6 +475,7 @@
 	.f-desc {
 		padding: 20px;
 	}
+	.acc-profile .list-event .thumb,
 	.list-event .thumb, 
 	.main-le .thumb {
 		height: 180px;
