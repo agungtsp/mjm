@@ -57,8 +57,20 @@
 		padding-left: 15px;
 		padding-right: 15px;
 	}
+	.nav-tabs-profile.col-md-4 {
+	    width: 27%;
+	}
+	.tab-content.col-md-8 {
+	    width: 73%;
+	}
 }
 @media screen and (max-width: 991px) {
+	.nav-tabs-profile.col-md-4 {
+	    width: 31%;
+	}
+	.tab-content.col-md-8 {
+	    width: 69%;
+	}
 	.navbar-mjm .navbar-nav li {
 		display: block;
 	}
@@ -159,6 +171,14 @@
 	}
 	.about-page h1 {
 		font-size: 46px;
+	}
+}
+@media screen and (max-width: 860px) {
+	.nav-tabs-profile.col-md-4 {
+	    width: 35%;
+	}
+	.tab-content.col-md-8 {
+	    width: 65%;
 	}
 }
 @media screen and (max-width: 767px) {
@@ -274,7 +294,7 @@
 		width: 100%;
 		flex-direction: row !important;
 		margin-right: 0;
-		width: 660px;
+		width: 903px;
 	}
 	.nav-tabs-profile {
 		margin-bottom: 30px;
@@ -422,6 +442,29 @@
 	#accordionServices .accordion-body {
 		padding-top: 30px;
 		padding-bottom: 15px;
+	}
+	.nav-tabs-profile.col-md-4 {
+	    width: 100%;
+	}
+	.tab-content.col-md-8 {
+	    width: 100%;
+	}
+	.owl-carousel.owl-promotions .owl-nav button span {
+		height: 30px;
+		padding: 0 10px;
+	}
+	.owl-carousel.owl-promotions .owl-nav button span:after {
+		width: 10px;
+		height: 10px;
+		border-width: 3px !important;
+	}
+	.owl-carousel.owl-promotions .owl-nav button.owl-prev, .owl-carousel.owl-promotions .owl-nav button.owl-next {
+		top: calc(50% - 15px);
+	}
+	.owl-theme.owl-promotions .owl-dots .owl-dot span {
+		width: 8px;
+    	height: 8px;
+    	margin: 0 5px;
 	}
 }
 @media screen and (max-width: 575px) {

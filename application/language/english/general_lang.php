@@ -19,10 +19,9 @@ $lang['lang_call_us_now'] = 'Call Us Now!';
 $lang['lang_email_us'] = 'E-mail Us';
 $lang['lang_read_more'] = 'Read More';
 $lang['lang_top_article'] = 'Top Articles';
-$lang['lang_buy_now'] = 'Buy Now';
-$lang['lang_learn_more'] = 'Learn More';
+$lang['lang_buy_now'] = 'Contact Us';
 
-$lang['lang_need_urgent'] = 'Need Urgent Advice?';
+$lang['lang_need_urgent'] = 'Need Further Discussion?';
 $lang['lang_need_urgent_offer'] = 'By joining our member area, you will get many special services & many other interesting offers.';
 $lang['lang_need_urgent_assistance'] = 'Call for Assistance';
 $lang['lang_need_urgent_join'] = 'JOIN CLIENT AREA';
