@@ -130,6 +130,15 @@ $('.owl-product-dtl').owlCarousel({
     items: 1
 })
 
+
+$('.owl-carousel-promotions').owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    dots: true,
+    items: 1
+})
+
 $('.owl-testimonials').owlCarousel({
     loop: true,
     margin: 0,

@@ -121,6 +121,23 @@ class Clientarea extends CI_Controller {
 			$data['seo_title'] = "MJM | Partner for Quality";
 		}
 		$data['meta_description'] = preg_replace('/<[^>]*>/', '', $data['meta_description']);
+
+		$id_lang = id_lang();
+        $this->load->model('pagesmodel');
+        $filter_pages['id_lang'] = $id_lang;
+        $filter_pages['lower(title)'] = 'dashboard member';
+        $page = $this->pagesmodel->findBy($filter_pages, 1);
+        $data['dashboard_description'] = str_replace("{base_url}", base_url(), $page['description']);	
+        $data['dashboard_title'] = $page['title'];
+		$data['dashboard_img'] = getImgLink($page['img'], 'large');
+		$data['member_dashboard_active'] = "active";
+
+		$this->load->model('promotionmodel');
+        $filter_list_promotion['id_lang'] = $id_lang;
+        $data['list_promotions'] = $this->promotionmodel->findBy($filter_list_promotions);	
+        foreach ($data['list_promotions'] as $key => $value) {
+            $data['list_promotions'][$key]['img'] = getImgLink($value['img'], 'large');
+        }
 		render('profile',$data); 
 	}
 

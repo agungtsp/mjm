@@ -1,5 +1,5 @@
 <?php
-class Usermodel extends  CI_Model{
+class Membermodel extends  CI_Model{
 	var $table = 'auth_user';
 	var $tableAs = 'auth_user a';
     function __construct(){
@@ -15,7 +15,7 @@ class Usermodel extends  CI_Model{
 
 		$this->db->select("a.id_auth_user as id, a.id_auth_user_grup, a.is_delete,grup, a.userid, a.full_name,a.email,a.phone, b.grup as user_group");
 		$this->db->where('a.is_delete',0);
-		$this->db->where('a.id_auth_user_grup !=',6);
+		$this->db->where('a.id_auth_user_grup',6);
 		$this->db->join('auth_user_grup b','b.id_auth_user_grup = a.id_auth_user_grup');
 		$query = $this->db->get_where($this->tableAs,$where);
 

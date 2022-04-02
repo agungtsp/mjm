@@ -40,3 +40,5 @@ $lang['lang_contact_send_message'] = 'Send Message';
 $lang['lang_others'] = 'Others';
 $lang['lang_get_in_touch'] = 'Get in touch';
 $lang['lang_content_contact_us'] = 'Come on, start contacting us quickly and easily';
+
+$lang['lang_welcome'] = 'Welcome';
