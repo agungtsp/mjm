@@ -32,11 +32,11 @@
                             </div>
                             <div class="tab-pane fade" id="v-pills-contract" role="tabpanel" aria-labelledby="v-pills-contract-tab">
                                 <div class="row f-table wow fadeIn">
-                                    <div class="col-sm-4 in-table">You have 2 Service request</div>
+                                    <div class="col-sm-4 in-table">You have&nbsp;<span id="contract-total-requested">0</span>&nbsp;Service request</div>
                                     <div class="col-sm-8 d-flex justify-content-end">
-                                        <select class="form-select d-inline w-auto h-100">
-                                            <option>Sort By Name</option>
-                                            <option>Sort By Date</option>
+                                        <select class="form-select d-inline w-auto h-100" id="contract-sort">
+                                            <option value="license">Sort By License</option>
+                                            <option value="date">Sort By Date</option>
                                         </select>
                                         <a href="#" class="btn btn-yellow d-inline-flex ms-3" id="create_new"><b>Create New</b></a>
                                     </div>
@@ -45,45 +45,20 @@
                                             <table class="table table-profile" width="100%">
                                                 <thead>
                                                     <tr>
-                                                      <th scope="col">Name</th>
+                                                      <th scope="col">License</th>
                                                       <th scope="col">Submite Date</th>
                                                       <th scope="col">Type</th>
                                                       <th scope="col">Status</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                      <td>Disinfectant request</td>
-                                                      <td>03-05-2022</td>
-                                                      <td>ODM</td>
-                                                      <td>Submited</td>
-                                                    </tr>
-                                                    <tr>
-                                                      <td>Hand sanitizer request</td>
-                                                      <td>22-03-2022</td>
-                                                      <td>OEM</td>
-                                                      <td>On Review</td>
-                                                    </tr>
-                                                    <tr>
-                                                      <td>Disinfectant request</td>
-                                                      <td>03-05-2022</td>
-                                                      <td>ODM</td>
-                                                      <td>Submited</td>
-                                                    </tr>
-                                                    <tr>
-                                                      <td>Disinfectant request</td>
-                                                      <td>03-05-2022</td>
-                                                      <td>ODM</td>
-                                                      <td>Submited</td>
-                                                    </tr>
-                                                </tbody>
+                                                <tbody id="data-contract"></tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row f-form wow fadeIn" style="display: none;">
                                     <div class="col">
-                                        <form action="" class="form-contract">
+                                        <form action="{base_url_lang}clientarea/submit_contract" class="form-contract" id="form-contract">
                                             <div class="row mb-4">
                                                 <div class="col-md-4">
                                                     <label for="" class="mt-2 pt-1">Type</label>
@@ -91,14 +66,15 @@
                                                 <div class="col-md-8">
                                                     <div class="select-type">
                                                         <label for="odm">
-                                                            <input type="radio" name="type" id="odm">
+                                                            <input type="radio" name="type[]" id="odm" value="ODM" data-parsley-errors-container="#error-contract-type" required>
                                                             <span>ODM</span>
                                                         </label>
                                                         <label for="oem">
-                                                            <input type="radio" name="type" id="oem">
+                                                            <input type="radio" name="type[]" id="oem" value="OEM" data-parsley-errors-container="#error-contract-type" required>
                                                             <span>OEM</span>
                                                         </label>
                                                     </div>
+                                                    <div id="error-contract-type"></div>
                                                 </div>
                                             </div>	
                                             <div class="row mb-4">
@@ -106,12 +82,8 @@
                                                     <label for="" class="mt-2 pt-1">Product Category</label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <select name="" id="" class="form-select">
-                                                        <option value="">Category 1</option>
-                                                        <option value="">Category 2</option>
-                                                        <option value="">Category 3</option>
-                                                        <option value="">Category 4</option>
-                                                        <option value="">Category 5</option>
+                                                    <select name="id_product_category" id="id_product_category" class="form-select" required>
+                                                        {list_product_category}
                                                     </select>
                                                 </div>
                                             </div>	
@@ -120,7 +92,7 @@
                                                     <label for="" class="mt-2 pt-1">License</label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="license" required>
                                                 </div>
                                             </div>	
                                             <div class="row mb-4">
@@ -128,7 +100,7 @@
                                                     <label for="" class="mt-2 pt-1">Details</label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <textarea class="form-control" rows="4"></textarea>
+                                                    <textarea class="form-control" rows="6" name="detail" required></textarea>
                                                 </div>
                                             </div>	
                                             <hr class="my-5">
@@ -137,7 +109,7 @@
                                                     <label for="" class="mt-2 pt-1">Company Name</label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="company_name" required>
                                                 </div>
                                             </div>	
                                             <div class="row mb-4">
@@ -145,7 +117,7 @@
                                                     <label for="" class="mt-2 pt-1">PIC Name</label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="pic_name" required>
                                                 </div>
                                             </div>	
                                             <div class="row mb-4">
@@ -153,7 +125,7 @@
                                                     <label for="" class="mt-2 pt-1">Email</label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input type="text" class="form-control">
+                                                    <input type="email" class="form-control" name="email" required>
                                                 </div>
                                             </div>	
                                             <div class="row mb-4">
@@ -161,7 +133,7 @@
                                                     <label for="" class="mt-2 pt-1">Office Number</label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="office_number" required>
                                                 </div>
                                             </div>	
                                             <div class="row mb-5">
@@ -169,7 +141,7 @@
                                                     <label for="" class="mt-2 pt-1">WhatsApp number</label>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="whatsapp_number" required>
                                                 </div>
                                             </div>	
                                             <div class="row mb-4">
@@ -177,8 +149,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="row">
-                                                        <div class="col"><button class="btn btn-outline-secondary w-100 h-100" id="cancel">Cancel</button></div>
-                                                        <div class="col"><button class="btn btn-yellow w-100 h-100">SUBMIT</button></div>
+                                                        <div class="col"><button class="btn btn-outline-secondary w-100 h-100" id="contract-cancel">Cancel</button></div>
+                                                        <div class="col"><button class="btn btn-yellow w-100 h-100" id="contract-submit">SUBMIT</button></div>
                                                     </div>
                                                 </div>
                                             </div>	

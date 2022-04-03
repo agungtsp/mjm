@@ -165,3 +165,69 @@ $('.owl-promotions').owlCarousel({
     items: 1,
     navText: ["<span></span>","<span></span>"]
 })
+
+function get_data_contract(){
+    $.ajax({
+        url         : base_url_lang+'clientarea/get_data_contract/'+$('#contract-sort').val(),
+        type        : "GET",
+        dataType    : 'json',
+        error   : function () {
+            alert('error!');
+        },
+        success     : function(ret){
+            $('#data-contract').html(ret.html);
+            $('#contract-total-requested').html(ret.total);
+        }
+    })
+};
+
+$(document).ready(function(){
+    $("#create_new").click(function(){
+      $(".f-table").toggle();
+      $(".f-form").toggle();
+    });
+    $("#contract-cancel").click(function(){
+      $(".f-table").toggle();
+      $(".f-form").toggle();
+    });
+    
+    $("#v-pills-contract-tab").click(function(){
+        get_data_contract();
+    });
+    $("#contract-sort").change(function(){
+        get_data_contract();
+    });
+}); 
+$("#contract-submit").click(function(){
+    event.preventDefault();
+    var btn  = $("#contract-submit"); 
+    if ($('#form-contract').parsley().validate()) {
+        if(btn.text() == 'LOADING...'){
+        return false;
+        }
+        btn.text('LOADING...')
+        $.ajax({
+            url         : $('#form-contract').attr('action'),
+            type        : "POST",
+            dataType    : 'json',
+            data        : $('#form-contract').serialize(),
+            error   : function () {
+                alert('error!');
+                btn.text('SUBMIT')
+            },
+            success     : function(ret){
+                btn.text('SUBMIT')
+                alert(ret.message)
+                if (ret.reload == true) {
+                    location.reload()
+                }
+                if(ret.error==0){
+                    $('#form-contract')[0].reset();
+                    $(".f-table").toggle();
+                    $(".f-form").toggle();
+                    get_data_contract();
+                }
+            }
+        })
+    }
+});

@@ -6,6 +6,7 @@ class Clientarea extends CI_Controller {
 		parent::__construct();
 		$this->load->model('usermodel');
 		$this->load->library("session");
+		$this->load->model('contract_model');
 	}
 
     function index(){
@@ -151,6 +152,9 @@ class Clientarea extends CI_Controller {
 		$data['member_mjm_contract_active'] = "active";
 
 		$data['list_top_event'] = $this->top_event($id_lang);
+
+		$data['list_product_category']   = selectlist2(array('table'=>'product_category','title'=>'All Product Category','selected'=>$data['id_product_category']));
+
 		render('profile',$data); 
 	}
 
@@ -213,6 +217,72 @@ class Clientarea extends CI_Controller {
         $this->session->sess_destroy();
         redirect('');
     }
+
+	function get_data_contract($sort){
+		$mem_sess = $this->session->userdata('MEM_SESS');
+		$data['html'] = '';
+		$data['total'] = 0;
+
+		if($mem_sess){
+			$this->layout = 'blank';
+			$where['a.id_auth_user'] = $mem_sess['id'];
+			if($sort=="license"){
+				$this->db->order_by('license', 'desc');
+			} else {
+				$this->db->order_by('create_date', 'desc');
+			}
+			$data_contract = $this->contract_model->findBy($where);
+			foreach ($data_contract as $key => $value) {
+				$data['html'] .= '<tr>
+					<td>'.$value['license'].'</td>
+					<td>'.date('d F Y', strtotime($value['create_date'])).'</td>
+					<td>'.$value['type'].'</td>
+					<td>'.$value['status'].'</td>
+				</tr>';
+			}
+			$data['total'] = count($data_contract);
+		}
+		echo json_encode($data);
+	}
+
+	function submit_contract($idedit){
+		$this->layout         = 'none';
+		$post                 = purify($this->input->post());
+		$ret['error']         = 1;
+		$mem_sess = $this->session->userdata('MEM_SESS');
+		if($mem_sess){
+			$this->form_validation->set_rules('type[]', '"type"', 'required');
+			$this->form_validation->set_rules('detail', '"detail"', 'required');
+			$this->form_validation->set_rules('license', '"license"', 'required');
+			$this->form_validation->set_rules('company_name', '"company_name"', 'required');
+			$this->form_validation->set_rules('pic_name', '"pic_name"', 'required');
+			$this->form_validation->set_rules('email', '"email"', 'required');
+			$this->form_validation->set_rules('office_number', '"office_number"', 'required');
+			$this->form_validation->set_rules('whatsapp_number', '"whatsapp_number"', 'required');
+			if ($this->form_validation->run() == FALSE){
+				$ret['message']  = validation_errors(' ',' ');
+			}else{
+				$this->db->trans_start();
+				$post['type'] = $post['type'][0];
+				$post['id_auth_user'] = $mem_sess['id'];
+				$post['user_id_create'] = $mem_sess['id'];
+				$post['status'] = 'Need Review';
+				if($idedit){
+					$ret['message'] = 'Update Success';
+					$act			= "Update contract";
+					$this->contract_model->update($post,$idedit);
+				}else{
+					$ret['message'] = 'Insert Success';
+					$act			= "Insert contract";
+					$this->contract_model->insert($post);
+				}
+
+				$this->db->trans_complete();
+				$ret['error'] = 0;
+			}
+		}
+		echo json_encode($ret);
+	}
 
 
 }

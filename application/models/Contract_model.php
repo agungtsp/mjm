@@ -32,7 +32,9 @@ class Contract_model extends  CI_Model{
 	}
 	function insert($data){
 		$data['create_date'] 	= date('Y-m-d H:i:s');
-		$data['user_id_create'] = id_user();
+		if(id_user()){
+			$data['user_id_create'] = id_user();
+		}
 		$data['is_delete'] = 0;
 		$this->db->insert($this->table,$data);
 		return $this->db->insert_id();
@@ -71,7 +73,10 @@ class Contract_model extends  CI_Model{
 	}
 	function findBy($where,$is_single_row=0){
 		$where['a.is_delete'] = 0;
-		$this->db->select('a.*');
+		$this->db->select("a.*,b.full_name, c.name as product_category");
+		$this->db->where('a.is_delete',0);
+		$this->db->join('auth_user b',"b.id_auth_user = a.id_auth_user",'left');
+		$this->db->join('product_category c',"c.id = a.id_product_category",'left');
 		if($is_single_row==1){
 			return 	$this->db->get_where($this->tableAs,$where)->row_array();
 		}
