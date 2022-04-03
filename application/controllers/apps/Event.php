@@ -36,7 +36,8 @@ class Event extends CI_Controller {
 			$data['event_date']		= date('d-m-Y');
 			$data['id'] 				= '';
             $data['url'] 				= '';
-			$data['checked_is_featured']     = '';
+            $data['register_url'] 				= '';
+			$data['checked_is_public']     = '';
 		}
 
 		$data['list_lang']	= $this->languagemodel->langName();
@@ -46,12 +47,13 @@ class Event extends CI_Controller {
 			$data['list_lang'][$key]['active']			= ($key==0) ? 'active in' : '';
 			$data['list_lang'][$key]['validation']		= ($key==0) ? 'true' : 'false';
 			$data['list_lang'][$key]['nomor']			= $key;
-			$data['list_lang'][$key]['checked_is_featured']      = ($datas[$key]['is_featured']==1)?"checked":'';
+			$data['list_lang'][$key]['checked_is_public']      = ($datas[$key]['is_public']==1)?"checked":'';
 			$data['list_lang'][$key]['title'] 		= $datas[$key]['title'];
 			$data['list_lang'][$key]['teaser'] 		= $datas[$key]['teaser'];
 			$data['list_lang'][$key]['uri_path'] 		= $datas[$key]['uri_path'];
 			$data['list_lang'][$key]['type'] 		= $datas[$key]['type'];
 			$data['list_lang'][$key]['url'] 					= $datas[$key]['url'];
+			$data['list_lang'][$key]['register_url'] 					= $datas[$key]['register_url'];
 			$data['list_lang'][$key]['event_date'] 			= iso_date($datas[$key]['event_date']);
 			$data['list_lang'][$key]['description'] 			= $datas[$key]['description'];
 			$data['list_lang'][$key]['id_status_publish'] 		= $datas[$key]['id_status_publish'];
@@ -96,10 +98,10 @@ class Event extends CI_Controller {
 			}else{
 				if($key==0){
 					if($idedit){
-						$data_save['is_featured']	= ($post['is_featured'][$key] != 1) ? 0 : 1;
+						$data_save['is_public']	= ($post['is_public'][$key] != 1) ? 0 : 1;
 					}
 					$idedit 			= $post['id'][$key];
-				 	$is_featured 		= ($post['is_featured'][$key] != 1) ? 0 : 1;
+				 	$is_public 		= ($post['is_public'][$key] != 1) ? 0 : 1;
 				 	$event_date		= iso_date($post['event_date'][$key]);
 				 	$id_status_publish	= $post['id_status_publish'][$key];
 				}
@@ -108,9 +110,10 @@ class Event extends CI_Controller {
 				$data_save['teaser'] 		= $post['teaser'][$key];
 				$data_save['uri_path'] 		= $post['uri_path'][$key];
 				$data_save['url'] 					= $post['url'][$key];
+				$data_save['register_url'] 					= $post['register_url'][$key];
 				$data_save['event_date']			= $event_date;
 				$data_save['description'] 			= $post['description'][$key];
-				$data_save['is_featured'] 			= $is_featured;
+				$data_save['is_public'] 			= $is_public;
 				$data_save['id_status_publish'] 	= $id_status_publish;
 				$data_save['id_lang'] 				= $post['id_lang'][$key];
 				$data_save['id_parent_lang']		= $id_parent_lang;

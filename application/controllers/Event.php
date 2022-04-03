@@ -34,6 +34,9 @@ class Event extends CI_Controller
         $data['event_teaser'] = $data_event['teaser'];	
 
         $filter_list_event['id_lang'] = $id_lang;
+		if($this->session->userdata('MEM_SESS')){
+            $filter_list_event['is_public'] = 1;
+        }
         $this->db->order_by('event_date', 'desc');
         $data['list_event'] = $this->eventmodel->findBy($filter_list_event);
         $data['list_event_one'] = array();
@@ -55,6 +58,9 @@ class Event extends CI_Controller
         $id_lang = id_lang();
         $filter_event['id_lang'] = $id_lang;
         $filter_event['uri_path'] = $uri_path;
+        if($this->session->userdata('MEM_SESS')){
+            $filter_event['is_public'] = 1;
+        }
         $data = $this->eventmodel->findBy($filter_event, 1);
         $data['img'] = getImgLink($data['img'], 'large');
         $data['event_date'] = date("d F Y", strtotime($data['event_date']));

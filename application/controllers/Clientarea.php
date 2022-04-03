@@ -146,6 +146,8 @@ class Clientarea extends CI_Controller {
         $data['mjm_contract_title'] = $page['title'];
 		$data['mjm_contract_img'] = getImgLink($page['img'], 'large');
 		$data['member_mjm_contract_active'] = "active";
+
+		$data['list_top_event'] = $this->top_event($id_lang);
 		render('profile',$data); 
 	}
 
@@ -183,5 +185,25 @@ class Clientarea extends CI_Controller {
     	}
 	}
 		
+	private function top_event($id_lang, $id=''){
+        $this->load->model('eventmodel');
+
+        $filter_recomendation['id_lang'] = $id_lang;
+        if($id){
+            $filter_recomendation['id !='] = $id;
+        } 
+		$filter_recomendation['is_public'] = 0;
+        $this->db->order_by('event_date', 'desc');
+        $data = $this->eventmodel->findBy($filter_recomendation);	
+        foreach ($data as $key => $value) {
+            $data[$key]['img_top_event'] = getImgLink($value['img'], 'large');
+            $data[$key]['uri_path_top_event'] = $value['uri_path'];
+            $data[$key]['title_top_event'] = $value['title'];
+            $data[$key]['url_top_event'] = $value['url'];
+            $data[$key]['register_url_top_event'] = $value['register_url'];
+            $data[$key]['event_date'] = date("d F Y", strtotime($value['event_date']));
+        }
+        return $data;
+    }
 
 }

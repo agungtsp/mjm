@@ -84,6 +84,9 @@ class Articles extends CI_Controller
         if($id){
             $filter_recomendation['id !='] = $id;
         } 
+		if($this->session->userdata('MEM_SESS')){
+            $filter_recomendation['is_public'] = 1;
+        }
         $this->db->order_by('event_date', 'desc');
         $data = $this->eventmodel->findBy($filter_recomendation);	
         foreach ($data as $key => $value) {
