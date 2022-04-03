@@ -1,0 +1,80 @@
+<form action='{this_controller}proses/{id}' class="form-horizontal" method='post' id='form1' autocomplete="off">
+<h1 class="page-header">{page_name}</h1>
+
+<div class="row">
+	<!-- begin col-12 -->
+	<div class="col-md-12">
+		<!-- begin panel -->
+		<div class="panel panel-inverse" data-sortable-id="index-1">
+			<div class="panel-heading">
+			    <div class="panel-heading-btn">
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+			    </div>
+			    <h4 class="panel-title">{judul} Contract</h4>
+			</div>
+
+			<div class="panel-body">
+				<div class="col-sm-12 col-lg-12 col-md-12">
+					<div class="row-fluid">
+						<div class="col-sm-12 text-right">
+							<a class="btn btn-primary insert update" id='save'><i class="fa fa-save"></i> {proses}</a>
+							<a class="btn btn-warning" href='{this_controller}'><i class="fa fa-arrow-left"></i> Back</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="clear-fix">&nbsp;</div>
+				<div class="col-sm-12 col-lg-9 col-md-12">
+					<div class="form-group  no-margin">
+						<label class="col-md-3 control-label">User<i class='req'>*</i></label>
+						<div class="col-md-9"><select id="id_auth_user" class='form-control' name="id_auth_user" data-parsley-required="{validation}">{list_auth_user}</select></div>
+					</div>
+					<div class="form-group  no-margin">
+						<label class="col-md-3 control-label">Type<i class='req'>*</i></label>
+						<div class="col-md-9"><select id="type" class='form-control' name="type" data-parsley-required="{validation}">
+							<option value="ODM" {selected_odm}>ODM</option>
+							<option value="OEM" {selected_oem}>OEM</option>
+						</select></div>
+					</div>
+					<div class="form-group  no-margin">
+						<label class="col-md-3 control-label">Product Category<i class='req'>*</i></label>
+						<div class="col-md-9"><select id="id_product_category" class='form-control' name="id_product_category" data-parsley-required="{validation}">{list_product_category}</select></div>
+					</div>
+					<div class="form-group  no-margin">
+						<label class="col-md-3 control-label">License<i class='req'>*</i></label>
+						<div class="col-md-9"><input type="text" value="{license}" id="license" name="license" class='form-control' data-parsley-required="true"></div>
+					</div>
+					<div class="form-group  no-margin">
+						<label class="col-md-3 control-label">Detail<i class='req'>*</i></label>
+						<div class="col-md-9"><textarea  rows="4" id="detail" name="detail" class="form-control"  data-parsley-required="true">{detail}</textarea></div>
+					</div>
+					<div class="form-group  no-margin">
+						<label class="col-md-3 control-label">Company Name<i class='req'>*</i></label>
+						<div class="col-md-9"><input type="text" value="{company_name}" id="company_name" name="company_name" class='form-control' data-parsley-required="true"></div>
+					</div>
+					<div class="form-group  no-margin">
+						<label class="col-md-3 control-label">PIC Name<i class='req'>*</i></label>
+						<div class="col-md-9"><input type="text" value="{pic_name}" id="pic_name" name="pic_name" class='form-control' data-parsley-required="true"></div>
+					</div>
+					<div class="form-group  no-margin">
+						<label class="col-md-3 control-label">Email<i class='req'>*</i></label>
+						<div class="col-md-9"><input type="text" value="{email}" id="email" name="email" class='form-control' data-parsley-required="true"></div>
+					</div>
+					<div class="form-group  no-margin">
+						<label class="col-md-3 control-label">Office Number<i class='req'>*</i></label>
+						<div class="col-md-9"><input type="text" value="{office_number}" id="office_number" name="office_number" class='form-control' data-parsley-required="true"></div>
+					</div>
+					<div class="form-group  no-margin">
+						<label class="col-md-3 control-label">Whatsapp Number<i class='req'>*</i></label>
+						<div class="col-md-9"><input type="text" value="{whatsapp_number}" id="whatsapp_number" name="whatsapp_number" class='form-control' data-parsley-required="true"></div>
+					</div>
+					<div class="form-group  no-margin">
+						<label class="col-md-3 control-label">Status<i class='req'>*</i></label>
+						<div class="col-md-9"><input type="text" value="{status}" id="status" name="status" class='form-control' data-parsley-required="true"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
