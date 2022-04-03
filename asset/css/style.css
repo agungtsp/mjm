@@ -916,9 +916,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 25px;
 }
 .acc-profile .nav {
-    width: 290px;
-    min-width: 290px;
-    margin-right: 50px;
+    width: 100%;
 }
 .acc-profile .nav-pills .nav-link {
     color: #026874;
@@ -937,9 +935,6 @@ h1, h2, h3, h4, h5, h6 {
 .acc-profile .nav-pills .nav-link.active, .acc-profile .nav-pills .show>.nav-link {
     background: #026874;
     color: #fff;
-}
-.acc-profile .tab-content {
-    width: 100%;
 }
 .table-profile {
     margin-top: 30px;
@@ -1886,12 +1881,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 #accordionTestimonials .accordion-button::after {
     filter: invert(137) contrast(115.5) brightness(2293.5)  sepia(23);
-}
-.nav-tabs-profile.col-md-4 {
-    width: 25%;
-}
-.tab-content.col-md-8 {
-    width: 75%;
 }
 .sort {
     width: 200px;

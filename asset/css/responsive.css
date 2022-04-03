@@ -43,11 +43,6 @@
 	.listmur-child .d-flex.align-items-center.col-sm-4 {
 		height: 100%;
 	}
-	.acc-profile .nav {
-		margin-right: 30px;	
-		width: 250px;	
-		min-width: 250px;
-	}
 	.acc-profile .nav-pills .nav-link {
 		padding: 10px 20px;
 		line-height: normal;
@@ -62,6 +57,9 @@
 	}
 	.tab-content.col-md-8 {
 	    width: 73%;
+	}
+	.nav-tabs-profile.col-md-4 {
+	    padding-right: 15px !important;
 	}
 }
 @media screen and (max-width: 991px) {
@@ -446,6 +444,7 @@
 	}
 	.nav-tabs-profile.col-md-4 {
 	    width: 100%;
+	    padding-right: 0 !important;
 	}
 	.tab-content.col-md-8 {
 	    width: 100%;
