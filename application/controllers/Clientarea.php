@@ -209,4 +209,10 @@ class Clientarea extends CI_Controller {
         return $data;
     }
 
+	function logout(){
+        $this->session->sess_destroy();
+        redirect('');
+    }
+
+
 }
