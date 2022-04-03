@@ -115,6 +115,9 @@ class Clientarea extends CI_Controller {
 	}
 
 	function profile(){
+		if(!$this->session->userdata('MEM_SESS')){
+			redirect(base_url_lang()."/clientarea");
+		}
 		$data = $this->usermodel->findById(id_member());
 		$data['page_name'] = 'Profile';
 		if($data['seo_title'] == ''){
