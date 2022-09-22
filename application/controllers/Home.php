@@ -89,6 +89,20 @@ class Home extends CI_Controller
             $data['list_certification'][$key]['img'] = getImgLink($value['img'], 'large');
         }
 
+        $this->load->model('productmodel');
+        $filter_product['id_lang'] = $id_lang;
+        $list_product = $this->productmodel->findBy($filter_product);
+        $data['show_load_more'] = "d-none";
+        foreach ($list_product as $key => $value) {
+            $value['img'] = getImgLink($value['img'], 'large');
+            $value['show_hide'] = "";
+            if($key>=0){
+                $data['show_load_more'] = "";
+                $value['show_hide'] = "d-none";
+            }
+            $data['list_product'][] = $value;
+        }
+
         render("home", $data);
     }
 

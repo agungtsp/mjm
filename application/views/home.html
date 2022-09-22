@@ -97,6 +97,32 @@
   </div>
 </section>
 
+<section class="product-page pt-0">
+  <div class="container">
+    <h2 class="text-center wow fadeInUp mb-5"><b class="text-red">Portfolio</b></h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-9 col-md-10">
+        <div class="row">
+          {list_product}
+            <div class="col-md-6 home-list-product {show_hide}">
+              <a href="{base_url_lang}product/detail/{uri_path}" class="l-product">
+                <img src="{img}" alt="">
+                <div class="desc">
+                  <span>teaser</span>
+                  <h2>{title}</h2>
+                </div>
+              </a>
+            </div>
+          {/list_product}
+          <div class="col-md-12 text-center pt-5 {show_load_more}">
+            <a href="#" class="btn btn-load-more wow fadeInUp" id="product-load-more">Load more...</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="certifications">
   <div class="container">
 

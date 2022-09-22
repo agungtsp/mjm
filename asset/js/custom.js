@@ -231,3 +231,9 @@ $("#contract-submit").click(function(){
         })
     }
 });
+
+$("#product-load-more").on('click', function (e) {
+    $(".product-page .home-list-product.d-none").removeClass('d-none');
+    $(this).fadeOut('slow');
+    return false;
+});
