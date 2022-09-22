@@ -96,7 +96,7 @@ class Home extends CI_Controller
         foreach ($list_product as $key => $value) {
             $value['img'] = getImgLink($value['img'], 'large');
             $value['show_hide'] = "";
-            if($key>=5){
+            if($key>=6){
                 $data['show_load_more'] = "";
                 $value['show_hide'] = "d-none";
             }
