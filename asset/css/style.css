@@ -14,7 +14,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 99;
+    z-index: 99991;
 }
 footer .f-top {
     padding-top: 50px;
@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: normal;
 }
 .logo img {
-    height: 50px;
+    height: 60px;
 }
 .top-header {
     color: #fff;
